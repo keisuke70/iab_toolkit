@@ -1,0 +1,11 @@
+openai>=1.3.7
+httpx
+aiohttp
+beautifulsoup4
+selectolax
+numpy
+python-dotenv
+
+[dev]
+pytest
+pytest-asyncio

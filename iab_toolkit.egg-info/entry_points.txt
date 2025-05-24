@@ -1,0 +1,2 @@
+[console_scripts]
+iab-classify = iab_toolkit.cli:main

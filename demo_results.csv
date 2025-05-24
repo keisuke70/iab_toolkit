@@ -1,0 +1,5 @@
+url,timestamp,error,top_category_id,top_category_name,top_category_score,all_categories,persona_age,persona_gender,persona_tech,persona_description
+https://www.foodnetwork.com/recipes,,Failed to fetch content,,,,,,,,
+https://www.bbc.com/news,2025-05-23T21:04:38.561716,,,,,,,,,
+https://www.techcrunch.com,2025-05-23T21:04:38.716624,,,,,,,,,
+https://www.cnn.com/sport,2025-05-23T21:04:41.035273,,,,,,,,,
