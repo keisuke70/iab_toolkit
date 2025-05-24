@@ -1,0 +1,44 @@
+{
+  "metadata": {
+    "system_version": "Simplified IAB Classification System v2",
+    "classification_date": "2025-05-24T00:54:32.195869",
+    "sample_name": "automotive_test",
+    "features": [
+      "No confidence percentages in output",
+      "3-metric user profile only",
+      "Tier 2 category focus",
+      "Offline processing"
+    ]
+  },
+  "input": {
+    "sample_name": "automotive_test",
+    "content_preview": "トヨタRAV4は、トヨタ自動車が製造・販売しているSUVです。1994年に初代モデルが発売され、現在は5代目となっています。RAV4は「Recreational Active Vehicle with 4-wheel drive」の略称で、レクリエーション活動にも対応できる四輪駆動車というコンセプトで開発されました。\n\n最新のRAV4は、力強いデザインと優れた燃費性能を両立しています。ハイブリッド...",
+    "content_length": 450
+  },
+  "classification": {
+    "primary_domain": "Automotive",
+    "tier2_categories": [
+      {
+        "rank": 1,
+        "id": "2",
+        "name": "Auto Body Styles",
+        "tier_1": "Automotive",
+        "tier_2": "Auto Body Styles",
+        "full_path": "Automotive > Auto Body Styles"
+      },
+      {
+        "rank": 2,
+        "id": "35",
+        "name": "Auto Safety",
+        "tier_1": "Automotive",
+        "tier_2": "Auto Safety",
+        "full_path": "Automotive > Auto Safety"
+      }
+    ]
+  },
+  "user_profile": {
+    "age_range": "30-45",
+    "geekiness_level": 5,
+    "content_sophistication": "advanced"
+  }
+}
