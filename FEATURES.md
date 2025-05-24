@@ -1,11 +1,13 @@
 # IAB Toolkit Enhanced Features
 
 ## Overview
+
 The IAB Toolkit has been enhanced with enterprise-level features for content classification using the IAB Content Taxonomy v3.1. The package now supports async batch processing, configuration management, multiple output formats, and **direct text classification**.
 
 ## New Features
 
 ### 1. Direct Text Classification ⭐ NEW
+
 - **Text Input**: Classify text directly without needing URLs
 - **File Support**: Process text from files
 - **Multi-language**: Full support for Japanese and other languages
@@ -26,6 +28,7 @@ iab-classify classify-text "Text here" --embedding-only --no-persona
 ```
 
 ### 2. Environment Configuration Management
+
 - **Secure API Key Storage**: API keys are stored in encrypted `.env` files in the user's home directory (`~/.iab_toolkit/`)
 - **Configuration Persistence**: Settings are saved between sessions
 - **Easy Management**: CLI commands for setting and viewing configuration
@@ -42,9 +45,11 @@ iab-classify config get-api-key
 ```
 
 ### 3. Enhanced CLI Interface
+
 The CLI now supports multiple subcommands while maintaining backwards compatibility:
 
 #### Single URL Classification (Backwards Compatible)
+
 ```bash
 # Old style - still works
 iab-classify https://example.com --no-persona
@@ -54,6 +59,7 @@ iab-classify classify https://example.com --no-persona --json
 ```
 
 #### Batch Processing
+
 ```bash
 # Process multiple URLs from a file
 iab-classify batch-classify urls.txt --output results.json
@@ -67,6 +73,7 @@ iab-classify batch-classify urls.txt \
 ```
 
 #### Configuration Management
+
 ```bash
 # Set API key
 iab-classify config set-api-key "sk-..."
@@ -79,6 +86,7 @@ iab-classify config set max_categories 5
 ```
 
 ### 4. Async Batch Processing
+
 - **Concurrent Processing**: Process multiple URLs simultaneously with configurable concurrency
 - **Progress Tracking**: Real-time progress updates during batch operations
 - **Error Handling**: Graceful handling of failed URLs without stopping the batch
@@ -100,19 +108,23 @@ results = await processor.classify_urls_batch(
 ```
 
 ### 5. Export Functionality
+
 Multiple output formats are supported:
 
 #### JSON Export
+
 ```bash
 iab-classify batch-classify urls.txt --output results.json
 ```
 
 #### CSV Export
+
 ```bash
 iab-classify batch-classify urls.txt --output results.csv
 ```
 
 #### Console Output
+
 ```bash
 # Human-readable format
 iab-classify batch-classify urls.txt
@@ -122,12 +134,14 @@ iab-classify batch-classify urls.txt --json
 ```
 
 ### 6. Enhanced Error Handling
+
 - **Network Errors**: Graceful handling of connection issues
 - **API Errors**: Proper error messages for authentication and rate limiting
 - **Content Errors**: Handling of malformed or inaccessible content
 - **Validation**: Input validation for URLs and configuration
 
 ### 7. Async Architecture
+
 The package now includes async versions of core functions:
 
 ```python
@@ -148,6 +162,7 @@ content = await fetch_content(url)
 ## File Structure
 
 ### New Modules
+
 - `_config.py` - Configuration management with .env support
 - `_batch.py` - Async batch processing with concurrent URL handling
 - Enhanced `_fetch.py` - Added aiohttp support for async operations
@@ -155,12 +170,14 @@ content = await fetch_content(url)
 - Enhanced `cli.py` - Multi-command CLI with backwards compatibility
 
 ### Configuration Files
+
 - `~/.iab_toolkit/.env` - User configuration and API keys
 - `~/.iab_toolkit/config.json` - Additional settings
 
 ## Usage Examples
 
 ### Direct Text Classification ⭐ NEW
+
 ```bash
 # Classify Japanese text about Toyota RAV4
 iab-classify classify-text "トヨタRAV4は、トヨタ自動車が製造・販売しているSUVです。1994年に初代モデルが発売され、現在は5代目となっています。RAV4は「Recreational Active Vehicle with 4-wheel drive」の略称で、レクリエーション活動にも対応できる四輪駆動車というコンセプトで開発されました。"
@@ -176,11 +193,13 @@ iab-classify classify-text --file japanese_text.txt --max-categories 5
 ```
 
 ### Basic Single URL Classification
+
 ```bash
 iab-classify https://www.techcrunch.com
 ```
 
 ### Batch Processing with Export
+
 ```bash
 # Create a file with URLs (one per line)
 echo "https://www.bbc.com/news" > urls.txt
@@ -192,6 +211,7 @@ iab-classify batch-classify urls.txt --output results.csv --concurrent 5
 ```
 
 ### Advanced Configuration
+
 ```bash
 # Set up your environment
 iab-classify config set-api-key "your-openai-api-key"
@@ -207,29 +227,34 @@ iab-classify batch-classify urls.txt \
 ```
 
 ## Performance Improvements
+
 - **Concurrent Processing**: Up to 10x faster batch processing through async operations
 - **Connection Pooling**: Efficient HTTP connection reuse with aiohttp
 - **Memory Optimization**: Streaming processing for large batches
 - **Rate Limiting**: Configurable concurrency to optimize API usage
 
 ## Error Recovery
+
 - **Retry Logic**: Automatic retry for transient network errors
 - **Partial Results**: Save successful classifications even if some URLs fail
 - **Detailed Logging**: Comprehensive error reporting with verbose mode
 - **Graceful Degradation**: Continue processing when individual URLs fail
 
 ## Security Features
+
 - **Encrypted Storage**: API keys stored securely in user-specific directories
 - **Key Masking**: API keys displayed with masking for security
 - **Environment Isolation**: Configuration isolated per user
 - **No Plaintext Storage**: Sensitive data properly protected
 
 ## Dependencies
+
 - `aiohttp` - Async HTTP client for concurrent requests
 - `python-dotenv` - Environment variable management
 - All existing dependencies maintained for backwards compatibility
 
 ## Migration Guide
+
 The enhanced toolkit is fully backwards compatible. Existing code will continue to work without changes. To use new features:
 
 1. **Install the enhanced version**: `pip install -e .`

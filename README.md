@@ -43,6 +43,7 @@ python -m scripts.build_vectors
 ```
 
 This will process the `Content Taxonomy 3.1.tsv` file and create:
+
 - `iab_toolkit/data/taxonomy.json` - Structured category data
 - `iab_toolkit/data/taxonomy_vec.npy` - Embedding vectors
 
@@ -51,12 +52,15 @@ This will process the `Content Taxonomy 3.1.tsv` file and create:
 ### Command Line Interface
 
 #### URL Classification
+
 Basic classification:
+
 ```bash
 iab-classify https://www.theverge.com/2025/05/22/ai-video-tools-roundup
 ```
 
 Output:
+
 ```
 Embedding:
   1. Technology & Computing (596)      score=0.91
@@ -70,6 +74,7 @@ Persona:
 ```
 
 Available options:
+
 ```bash
 iab-classify --help
 iab-classify https://example.com --no-persona    # Skip persona generation
@@ -79,7 +84,9 @@ iab-classify https://example.com --verbose       # Enable verbose logging
 ```
 
 #### Direct Text Classification ⭐ NEW
+
 Classify text directly (great for Japanese content):
+
 ```bash
 # Direct text input
 iab-classify classify-text "Your text content here"
@@ -95,12 +102,14 @@ iab-classify classify-text --file content.txt --embedding-only --no-persona
 ```
 
 #### Batch Processing
+
 ```bash
 # Process multiple URLs
 iab-classify batch-classify urls.txt --output results.csv --concurrent 5
 ```
 
 Output:
+
 ```
 https://www.theverge.com/2025/05/22/ai-video-tools-roundup,Technology & Computing (596),0.91,Arts & Entertainment (JLBCU7),0.88
 https://www.example.com,Shopping (IAB19),0.85,Home & Garden (IAB7),0.80
@@ -183,16 +192,19 @@ class PersonaResult:
 ## Performance & Costs
 
 ### Latency
+
 - **Embedding classification**: ~1-2 seconds
 - **With GPT fallback**: ~3-5 seconds
 - **With persona**: +1-2 seconds
 
 ### OpenAI API Costs (approximate)
+
 - **Embeddings**: ~$0.00002 per classification
 - **GPT fallback**: ~$0.001-0.003 per classification
 - **Persona generation**: ~$0.0005-0.001 per request
 
 ### Optimization
+
 - Taxonomy vectors are lazy-loaded and cached in memory
 - Content is limited to 8k characters for embeddings
 - Batch processing available for multiple URLs
@@ -248,16 +260,20 @@ MIT License - see LICENSE file for details.
 ### Common Issues
 
 **"OPENAI_API_KEY environment variable not set"**
+
 - Set the environment variable or create a `.env` file with your API key
 
 **"Taxonomy data not found"**
+
 - Run `python -m scripts.build_vectors` to generate the taxonomy vectors
 
 **"Failed to fetch content"**
+
 - Check internet connection and URL accessibility
 - Some sites may block automated requests
 
 **"No main content extracted"**
+
 - The page may have unusual HTML structure
 - Check if the page requires JavaScript to load content
 
@@ -270,6 +286,7 @@ iab-classify https://example.com --verbose
 ```
 
 Or in Python:
+
 ```python
 import logging
 logging.basicConfig(level=logging.INFO)

@@ -1,10 +1,13 @@
 # Direct Text Classification - Implementation Complete
 
 ## Summary
+
 ✅ **COMPLETED**: Your request for direct text classification has been successfully implemented and tested.
 
 ## What's New
+
 The IAB Toolkit now includes a **`classify-text`** command that allows you to:
+
 - Classify text directly (no URLs needed)
 - Process Japanese text (like your Toyota RAV4 example)
 - Get IAB categories including **Tier 2 categories** as requested
@@ -28,12 +31,14 @@ iab-classify classify-text --file japanese_text_sample.txt --embedding-only --no
 ```
 
 ### Direct Text Input
+
 ```bash
 # Classify text directly from command line
 iab-classify classify-text "トヨタRAV4は、トヨタ自動車が製造・販売しているSUVです。1994年に初代モデルが発売され、現在は5代目となっています。"
 ```
 
 ### From Any Text File
+
 ```bash
 # Create your own text file
 echo "Your content here" > my_text.txt
@@ -69,14 +74,14 @@ Persona:
 
 ## Command Options
 
-| Option | Description |
-|--------|-------------|
-| `--file` / `-f` | Read text from a file |
-| `--json` | Output structured JSON |
+| Option               | Description                            |
+| -------------------- | -------------------------------------- |
+| `--file` / `-f`      | Read text from a file                  |
+| `--json`             | Output structured JSON                 |
 | `--max-categories N` | Return up to N categories (default: 3) |
-| `--embedding-only` | Skip GPT processing (faster) |
-| `--no-persona` | Skip persona generation |
-| `--verbose` | Show detailed logging |
+| `--embedding-only`   | Skip GPT processing (faster)           |
+| `--no-persona`       | Skip persona generation                |
+| `--verbose`          | Show detailed logging                  |
 
 ## Files Created for You
 
@@ -93,18 +98,20 @@ Persona:
 ✅ JSON output format implemented  
 ✅ Tier 2 category highlighting implemented  
 ✅ Japanese text support confirmed  
-✅ Help documentation complete  
+✅ Help documentation complete
 
 Note: The actual classification requires an active OpenAI API key with quota. The command structure and all parsing is working perfectly.
 
 ## Quick Start
 
 1. Make sure you have an OpenAI API key set up:
+
    ```bash
    iab-classify config set-api-key "your-api-key"
    ```
 
 2. Test with your Japanese text:
+
    ```bash
    iab-classify classify-text --file japanese_text_sample.txt
    ```
