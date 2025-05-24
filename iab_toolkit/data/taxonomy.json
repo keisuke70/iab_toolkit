@@ -1,5 +1,23 @@
 [
   {
+    "unique_id": "Unique ID",
+    "parent": "Parent",
+    "name": "Name",
+    "tier_1": "Tier 1",
+    "tier_2": "Tier 2",
+    "tier_3": "Tier 3",
+    "tier_4": "Tier 4"
+  },
+  {
+    "unique_id": "150",
+    "parent": "150",
+    "name": "Attractions",
+    "tier_1": "Attractions",
+    "tier_2": null,
+    "tier_3": null,
+    "tier_4": null
+  },
+  {
     "unique_id": "151",
     "parent": "150",
     "name": "Amusement and Theme Parks",

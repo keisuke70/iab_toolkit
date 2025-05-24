@@ -114,6 +114,29 @@ The system fully supports Japanese text classification. The embedding model can 
 - **Full Mode**: Default behavior includes GPT refinement and persona generation
 - **Structured Mode**: Use `--json` for programmatic processing
 
+## Cross-Language Classification
+
+### Japanese Text Support
+The system supports Japanese text classification by adjusting the similarity threshold:
+
+```bash
+# Default threshold (0.40) may be too high for cross-language classification
+iab-classify classify-text -f japanese_text.txt --min-score 0.20
+
+# For better results with Japanese text, use lower thresholds
+iab-classify classify-text "トヨタRAV4は、トヨタ自動車が製造・販売しているSUVです。" --min-score 0.15 --max-categories 5
+```
+
+**Recommended Settings for Japanese Text:**
+- `--min-score 0.20` - Good balance for most Japanese content
+- `--min-score 0.15` - More permissive, catches more categories
+- `--max-categories 5` - Get more classification options
+
+**Example Results for Japanese Toyota RAV4 Text:**
+- Embedding: SUV (0.32), Off-Road Vehicles (0.32), Minivan (0.28)
+- GPT Enhancement: Automotive (0.85), Vehicles (0.85), SUVs (0.85)
+- Persona: 25-34|35-49 / neutral / enthusiast
+
 ## Integration Examples
 
 ### Python Script

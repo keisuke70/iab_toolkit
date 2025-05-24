@@ -244,7 +244,8 @@ def cmd_classify_text(args):
         try:
             categories_embedding = classify_with_embeddings(
                 text_content, 
-                max_categories=args.max_categories
+                max_categories=args.max_categories,
+                min_score=args.min_score
             )
         except Exception as e:
             print(f"Embedding classification failed: {e}")
@@ -420,6 +421,7 @@ def main():
         text_classify_parser.add_argument("--no-persona", action="store_true", help="Skip persona generation")
         text_classify_parser.add_argument("--json", action="store_true", help="Output raw JSON instead of formatted text")
         text_classify_parser.add_argument("--max-categories", type=int, default=3, help="Maximum number of categories to return (default: 3)")
+        text_classify_parser.add_argument("--min-score", type=float, default=0.40, help="Minimum similarity score threshold (default: 0.40, use lower values like 0.20 for cross-language classification)")
         text_classify_parser.add_argument("--embedding-only", action="store_true", help="Use embedding results only, skip GPT refinement")
         text_classify_parser.add_argument("--verbose", "-v", action="store_true", help="Enable verbose logging")
         

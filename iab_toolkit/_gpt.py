@@ -32,6 +32,17 @@ def get_async_openai_client() -> openai.AsyncOpenAI:
     return openai.AsyncOpenAI(api_key=api_key)
 
 
+def clean_json_response(response_text: str) -> str:
+    """Clean GPT response by removing markdown code blocks."""
+    response_text = response_text.strip()
+    # Remove markdown code blocks if present
+    if response_text.startswith('```'):
+        lines = response_text.split('\n')
+        # Remove first and last lines (the ``` markers)
+        response_text = '\n'.join(lines[1:-1])
+    return response_text
+
+
 def classify_with_gpt(
     content: str,
     max_categories: int = 3
@@ -57,20 +68,20 @@ Only output JSON."""
     
     try:
         response = client.chat.completions.create(
-            model="o4-mini-2025-04-16",
+            model="gpt-4o-mini",
             messages=[
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt}
             ],
             temperature=0.1,
-            max_tokens=500
+            max_completion_tokens=500
         )
         
         response_text = response.choices[0].message.content
         if not response_text:
             logger.error("Empty response from GPT")
             return []
-        response_text = response_text.strip()
+        response_text = clean_json_response(response_text)
         
         # Parse JSON response
         try:
@@ -134,14 +145,14 @@ Return compact JSON:
                 {"role": "user", "content": user_prompt}
             ],
             temperature=0.3,
-            max_tokens=300
+            max_completion_tokens=300
         )
         
         response_text = response.choices[0].message.content
         if not response_text:
             logger.error("Empty response from GPT")
             return None
-        response_text = response_text.strip()
+        response_text = clean_json_response(response_text)
         
         # Parse JSON response
         try:
@@ -203,14 +214,14 @@ Only output JSON."""
                 {"role": "user", "content": user_prompt}
             ],
             temperature=0.1,
-            max_tokens=500
+            max_completion_tokens=500
         )
         
         response_text = response.choices[0].message.content
         if not response_text:
             logger.error("Empty response from GPT")
             return []
-        response_text = response_text.strip()
+        response_text = clean_json_response(response_text)
         
         # Parse JSON response
         try:
@@ -274,14 +285,14 @@ Return compact JSON:
                 {"role": "user", "content": user_prompt}
             ],
             temperature=0.3,
-            max_tokens=300
+            max_completion_tokens=300
         )
         
         response_text = response.choices[0].message.content
         if not response_text:
             logger.error("Empty response from GPT")
             return None
-        response_text = response_text.strip()
+        response_text = clean_json_response(response_text)
         
         # Parse JSON response
         try:
