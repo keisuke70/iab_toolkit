@@ -104,54 +104,17 @@ class HybridIABClassifier:
         """
         if self.optimized_tier1_detector:
             # Use the optimized detector (pure embedding-based, no keyword fallbacks)
-            return self.optimized_tier1_detector.detect_tier1_domain(text)
+            # The OptimizedTier1Detector itself handles the REAL_API_AVAILABLE check for embedding the input text.
+            domain, confidence = self.optimized_tier1_detector.detect_tier1_domain(text)
+            if domain == "Unknown" and confidence == 0.0 and not REAL_API_AVAILABLE:
+                # This case means OptimizedTier1Detector couldn't embed the input text due to API unavailability.
+                print("⚠️ Optimized detector could not process text due to API unavailability, falling back to keyword-based Tier 1 detection.")
+                return self._fallback_tier1_detection(text)
+            return domain, confidence
         
-        # Fallback to original approach if optimized detector not available
-        return self._original_embedding_tier1_detection(text)
-    
-    def _original_embedding_tier1_detection(self, text: str) -> Tuple[str, float]:
-        """
-        Original embedding approach (kept as fallback).
-        This approach achieved 100% accuracy in testing but is slower.
-        """
-        if not REAL_API_AVAILABLE:
-            return self._fallback_tier1_detection(text)
-        
-        try:
-            # Create embedding for input text
-            text_embedding = embed_text_sync(text[:8000])  # Limit to 8k chars
-            text_embedding = normalize_vector(text_embedding)
-            
-            best_domain = None
-            best_score = 0.0
-            
-            # Compare with each Tier 1 domain
-            for tier1_entry in self.tier1_categories:
-                # Create embedding for domain name only (like successful comparison)
-                domain_text = tier1_entry['name']
-                
-                domain_embedding = embed_text_sync(domain_text)
-                domain_embedding = normalize_vector(domain_embedding)
-                
-                # Calculate cosine similarity
-                score = cosine_similarity(text_embedding, domain_embedding)
-                
-                if score > best_score:
-                    best_score = score
-                    best_domain = tier1_entry['name']
-            
-            # If confidence is low, try fallback to see if it has a better match
-            if best_score < 0.3:  # Low confidence threshold
-                fallback_domain, fallback_confidence = self._fallback_tier1_detection(text)
-                if fallback_confidence > 0.3:  # Fallback has decent confidence
-                    print(f"Using fallback detection: {fallback_domain} (fallback conf: {fallback_confidence:.3f}) over embedding: {best_domain} (conf: {best_score:.3f})")
-                    return fallback_domain, fallback_confidence
-            
-            return best_domain or "Unknown", best_score
-            
-        except Exception as e:
-            print(f"Error in embedding Tier 1 detection: {e}")
-            return self._fallback_tier1_detection(text)
+        # Fallback to keyword-based approach if OptimizedTier1Detector instance is not available
+        print("⚠️ OptimizedTier1Detector instance not available, falling back to keyword-based Tier 1 detection.")
+        return self._fallback_tier1_detection(text)
     
     def _fallback_tier1_detection(self, text: str) -> Tuple[str, float]:
         """Fallback Tier 1 detection using keyword matching."""

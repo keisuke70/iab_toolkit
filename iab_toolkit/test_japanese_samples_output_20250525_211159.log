@@ -1,0 +1,195 @@
+================================================================================
+COMPREHENSIVE JAPANESE TEXT CLASSIFICATION TEST - LOG AT 2025-05-25 21:11:59.586807
+================================================================================
+🎯 Testing hybrid system with real Japanese content
+📊 Using .npy embeddings for tier1 + LLM for tier2
+🇯🇵 All samples are authentic Japanese text
+
+Initializing HybridIABClassifier...
+🚀 Initializing OptimizedTier1Detector for fast classification...
+Loading precomputed Tier 1 embeddings...
+Loaded 39 domain embeddings
+✅ Loaded optimized embeddings for 39 domains
+
+📄 Loaded 5 Japanese sample files
+
+🧪 Test 1: Beauty & Cosmetics
+============================================================
+📝 説明: オーガニック化粧品ブランド
+📄 ファイル: japanese_beauty_sample.txt
+📊 期待される分類: Style & Fashion
+📖 テキスト概要: オーガニック化粧品ブランド「ナチュラルビューティー」は、敏感肌の方にも安心してお使いいただける自然由来の美容製品を提供しています。特に人気の高いスキンケアシリーズは、化学合成成分を一切使用せず、植物エ...
+
+=== OPTIMIZED HYBRID IAB CLASSIFICATION ===
+🚀 Using OptimizedTier1Detector for fast performance!
+Step 1: Optimized Tier 1 domain detection...
+Primary domain: Style & Fashion (confidence: 0.231)
+Step 2: Retrieving Tier 2 categories...
+Found 10 Tier 2 categories in Style & Fashion
+Step 3: LLM-based Tier 2 classification with user profiling...
+Classification completed in 4.396 seconds
+🎯 分類結果:
+   ✅ Tier1ドメイン: Style & Fashion
+   📈 期待値: Style & Fashion
+   ✓ 正確性: 正解
+
+🏷️  Tier2カテゴリ (TOP 2):
+   1. Women's Fashion (80.0%)
+   2. Beauty (90.0%)
+
+👤 ユーザープロファイル:
+   年齢層: 30-45
+   技術レベル: 6/10
+   コンテンツ洗練度: intermediate
+   ユーザー層: health-conscious, environmentally aware women, possibly professionals or homemakers interested in natural beauty products
+
+⏱️  処理時間: 4.396秒
+
+------------------------------------------------------------
+
+🧪 Test 2: Automotive
+============================================================
+📝 説明: トヨタRAV4 SUV
+📄 ファイル: japanese_text_sample.txt
+📊 期待される分類: Automotive
+📖 テキスト概要: トヨタRAV4は、トヨタ自動車が製造・販売しているSUVです。1994年に初代モデルが発売され、現在は5代目となっています。RAV4は「Recreational Active Vehicle with...
+
+=== OPTIMIZED HYBRID IAB CLASSIFICATION ===
+🚀 Using OptimizedTier1Detector for fast performance!
+Step 1: Optimized Tier 1 domain detection...
+Primary domain: Automotive (confidence: 0.254)
+Step 2: Retrieving Tier 2 categories...
+Found 16 Tier 2 categories in Automotive
+Step 3: LLM-based Tier 2 classification with user profiling...
+Classification completed in 4.120 seconds
+🎯 分類結果:
+   ✅ Tier1ドメイン: Automotive
+   📈 期待値: Automotive
+   ✓ 正確性: 正解
+
+🏷️  Tier2カテゴリ (TOP 2):
+   1. Auto Buying and Selling (80.0%)
+   2. Auto Repair (60.0%)
+
+👤 ユーザープロファイル:
+   年齢層: 30-45
+   技術レベル: 6/10
+   コンテンツ洗練度: intermediate
+   ユーザー層: middle-aged, environmentally conscious, outdoor and family-oriented consumers
+
+⏱️  処理時間: 4.120秒
+
+------------------------------------------------------------
+
+🧪 Test 3: Technology
+============================================================
+📝 説明: iPhone 15 Pro技術
+📄 ファイル: japanese_technology_sample.txt
+📊 期待される分類: Technology & Computing
+📖 テキスト概要: 最新のiPhone 15 Proは、Appleが開発した革新的なスマートフォンです。A17 Proチップを搭載し、従来モデルと比較して処理性能が大幅に向上しています。特に機械学習とAI処理において、そ...
+
+=== OPTIMIZED HYBRID IAB CLASSIFICATION ===
+🚀 Using OptimizedTier1Detector for fast performance!
+Step 1: Optimized Tier 1 domain detection...
+Primary domain: Technology & Computing (confidence: 0.223)
+Step 2: Retrieving Tier 2 categories...
+Found 6 Tier 2 categories in Technology & Computing
+Step 3: LLM-based Tier 2 classification with user profiling...
+Classification completed in 2.607 seconds
+🎯 分類結果:
+   ✅ Tier1ドメイン: Technology & Computing
+   📈 期待値: Technology & Computing
+   ✓ 正確性: 正解
+
+🏷️  Tier2カテゴリ (TOP 2):
+   1. Computing (90.0%)
+   2. Consumer Electronics (85.0%)
+
+👤 ユーザープロファイル:
+   年齢層: 30-45
+   技術レベル: 7/10
+   コンテンツ洗練度: advanced
+   ユーザー層: tech-savvy professional, early adopter of new technology
+
+⏱️  処理時間: 2.607秒
+
+------------------------------------------------------------
+
+🧪 Test 4: Business & Finance
+============================================================
+📝 説明: 東京証券取引所企業
+📄 ファイル: japanese_business_sample.txt
+📊 期待される分類: Business and Finance
+📖 テキスト概要: 東京証券取引所に上場している新興企業「グリーンテック・ソリューションズ」は、再生可能エネルギー分野で急成長を遂げています。2024年の第3四半期決算では、前年同期比150％の売上成長を記録し、投資家か...
+
+=== OPTIMIZED HYBRID IAB CLASSIFICATION ===
+🚀 Using OptimizedTier1Detector for fast performance!
+Step 1: Optimized Tier 1 domain detection...
+Primary domain: Business and Finance (confidence: 0.208)
+Step 2: Retrieving Tier 2 categories...
+Found 3 Tier 2 categories in Business and Finance
+Step 3: LLM-based Tier 2 classification with user profiling...
+Classification completed in 3.452 seconds
+🎯 分類結果:
+   ✅ Tier1ドメイン: Business and Finance
+   📈 期待値: Business and Finance
+   ✓ 正確性: 正解
+
+🏷️  Tier2カテゴリ (TOP 2):
+   1. Economy (90.0%)
+   2. Industries (85.0%)
+
+👤 ユーザープロファイル:
+   年齢層: 30-45
+   技術レベル: 8/10
+   コンテンツ洗練度: advanced
+   ユーザー層: financially literate investor or professional with interest in markets and renewable energy
+
+⏱️  処理時間: 3.452秒
+
+------------------------------------------------------------
+
+🧪 Test 5: Health & Wellness
+============================================================
+📝 説明: 東京大学医学部研究
+📄 ファイル: japanese_health_sample.txt
+📊 期待される分類: Healthy Living
+📖 テキスト概要: 東京大学医学部が発表した最新の研究によると、定期的な運動習慣が認知症予防に重要な役割を果たすことが科学的に証明されました。週3回以上の有酸素運動を継続することで、アルツハイマー型認知症のリスクを約40...
+
+=== OPTIMIZED HYBRID IAB CLASSIFICATION ===
+🚀 Using OptimizedTier1Detector for fast performance!
+Step 1: Optimized Tier 1 domain detection...
+Primary domain: Healthy Living (confidence: 0.310)
+Step 2: Retrieving Tier 2 categories...
+Found 8 Tier 2 categories in Healthy Living
+Step 3: LLM-based Tier 2 classification with user profiling...
+Classification completed in 3.309 seconds
+🎯 分類結果:
+   ✅ Tier1ドメイン: Healthy Living
+   📈 期待値: Healthy Living
+   ✓ 正確性: 正解
+
+🏷️  Tier2カテゴリ (TOP 2):
+   1. Nutrition (80.0%)
+   2. Weight Loss (60.0%)
+
+👤 ユーザープロファイル:
+   年齢層: 40-60
+   技術レベル: 6/10
+   コンテンツ洗練度: advanced
+   ユーザー層: health-conscious middle-aged adults, possibly with an interest in preventive medicine
+
+⏱️  処理時間: 3.309秒
+
+------------------------------------------------------------
+
+🚀 システムステータス:
+================================================================================
+✅ .npy埋め込みファイル使用中
+✅ 日本語コンテンツ対応済み
+✅ ハイブリッド分類稼働中
+✅ ユーザープロファイリング機能
+✅ 本番環境対応準備完了
+
+🎉 全てのテストが成功しました！
+🎯 システムは完全に機能しています
