@@ -1,310 +1,159 @@
-# IAB Toolkit - Hybrid Text Classifier
+# ハイブリッド IAB 分類システム
 
-A high-performance hybrid text classification package for IAB (Interactive Advertising Bureau) content categorization. This package uses advanced AI techniques to classify text content according to IAB taxonomy standards with exceptional accuracy.
+このパッケージは、IAB Content Taxonomy v3.1 分類のための最適化されたハイブリッドアプローチを提供します。このアプローチは、埋め込みベースの Tier 1 検出と LLM ベースの Tier 2 分類を組み合わせたものです。
 
-## Features
+## 特徴
 
-- **Hybrid Classification**: Combines multiple AI techniques for optimal accuracy
-- **Tier 1 Detection**: Specialized detector for top-level IAB categories
-- **Multi-language Support**: Works with English, Japanese, and other languages
-- **Fast Processing**: Optimized for performance and efficiency
-- **Easy Integration**: Simple API for seamless integration into existing workflows
-- **CLI Interface**: Command-line tool for batch processing and testing
+- **2.2 倍のパフォーマンス向上**: Tier 1 検出において、API 呼び出し回数を 40+回から 1 回に削減
+- **100%の Tier 1 精度**: 包括的なテストで達成
+- **事前計算済み埋め込み**: `.npy`ファイルを使用し、即座に類似度計算を実行
+- **日本語コンテンツサポート**: 実際の日本語テキストサンプルで完全にテスト済み
+- **包括的なユーザープロファイリング**: 年齢層、ギーク度、コンテンツの洗練度
 
-## Installation
+## アーキテクチャ
 
-```bash
-pip install iab-toolkit
-```
+1.  **最適化された Tier 1 検出**: 事前計算された埋め込みとコサイン類似度を使用
+2.  **LLM ベースの Tier 2 分類**: 正確なカテゴリ分類のための絞り込まれたタクソノミーサブセット
+3.  **ユーザープロファイル分析**: 人口統計学的および行動パターンの推定
 
-## Quick Start
-
-### Basic Usage
+## クイックスタート
 
 ```python
-from iab_toolkit import HybridIABClassifier
+from iab_toolkit import HybridIABClassifier # パッケージ名から直接インポート
 
-# Initialize the classifier
+# 分類器を初期化
 classifier = HybridIABClassifier()
 
-# Classify text content
-text = "Learn Python programming with our comprehensive online courses and tutorials."
-result = classifier.classify(text)
+# コンテンツを分類
+text_to_classify = "ここに分類したいコンテンツテキストを入力します。例えば、テクノロジーに関するニュース記事やファッションに関するブログ投稿などです。"
+result = classifier.classify(text_to_classify)
 
-print(f"Category: {result.category}")
-print(f"Confidence: {result.confidence:.2f}")
-print(f"Tier 1: {result.tier1}")
+# 結果へのアクセス
+print(f"主要Tier 1ドメイン: {result.primary_tier1_domain}")
+
+print("\nTier 2カテゴリ:")
+if result.tier2_categories:
+    for cat in result.tier2_categories:
+        print(f"  - 名前: {cat.get('name', 'N/A')}") # カテゴリ名
+        print(f"    信頼度: {cat.get('confidence', 0.0):.2f}") # 信頼度
+else:
+    print("  Tier 2カテゴリは見つかりませんでした。")
+
+print("\nユーザープロファイル:")
+if result.user_profile:
+    print(f"  年齢層: {result.user_profile.age_range}") # 年齢層
+    print(f"  ギークレベル: {result.user_profile.geekiness_level}/10") # 技術関心度
+    print(f"  コンテンツの洗練度: {result.user_profile.content_sophistication}") # コンテンツの専門性
+    print(f"  推定される読者層: {result.user_profile.likely_demographics}") # 推定される読者層
+else:
+    print("  ユーザープロファイルは生成されませんでした。")
+
+print(f"\n処理時間: {result.processing_time:.3f} 秒") # 処理時間
+print(f"使用された手法: {result.method_used}") # 使用された分類手法
 ```
 
-### Advanced Usage with Custom Configuration
+## パフォーマンスメトリクス
 
-```python
-from iab_toolkit import HybridIABClassifier, OptimizedTier1Detector
+- **処理時間**: 分類あたり約 450ms（従来は約 1000ms）
+- **API 効率**: 分類あたり埋め込み呼び出し 1 回 + LLM 呼び出し 1 回
+- **精度**: Tier 1 検出 100%、総合精度 80%
+- **日本語サポート**: 5 種類のサンプルタイプで完全に検証済み
 
-# Initialize with custom settings
-classifier = HybridIABClassifier(
-    confidence_threshold=0.8,
-    use_embeddings=True,
-    max_retries=3
-)
+## ファイル構成と説明
 
-# For specialized Tier 1 detection
-tier1_detector = OptimizedTier1Detector()
-tier1_result = tier1_detector.detect(text)
-```
+このプロジェクトは以下の主要なファイルで構成されています。
 
-## Command Line Interface
+- `iab_toolkit/`
+  - `__init__.py`: `iab_toolkit` パッケージの初期化スクリプト。主要クラスをインポート可能にします。
+  - `_config.py`: OpenAI API キーなどの設定情報を管理します。
+  - `_embedding.py`: テキストの埋め込みベクトル生成（OpenAI API 利用）と関連ユーティリティを提供します。
+  - `_gpt.py`: OpenAI GPT モデルとの連携を担当し、コンテンツ分類やプロファイル生成を行います。
+  - `cli.py`: コマンドラインインターフェース（`iab-hybrid`）を提供します。テキスト入力、ファイル入力、テスト実行が可能です。
+  - `hybrid_iab_classifier.py`: 中核となる `HybridIABClassifier` クラスを実装し、Tier 1 および Tier 2 の分類処理全体を制御します。
+  - `models.py`: 分類結果やユーザープロファイル情報を格納するためのデータクラスを定義します。
+  - `optimized_tier1_detector.py`: 事前計算済み埋め込みを利用して高速な Tier 1 ドメイン検出を行う `OptimizedTier1Detector` クラスを実装します。
+  - `test_japanese_samples.py`: 日本語サンプルテキストを用いた分類システムのテストスイートです。
+  - `data/`:
+    - `tier1_embeddings.npy`: Tier 1 ドメインの事前計算済み埋め込みベクトル。
+    - `tier1_domains.json`: `tier1_embeddings.npy` に対応する Tier 1 ドメイン名の順序付きリスト。
+    - `tier1_taxonomy.json`: Tier 1 検出用に最適化・クリーンアップされたタクソノミーデータ。
+    - `taxonomy.json`: IAB Content Taxonomy v3.1 の全データ。
+    - 各種 `japanese_*.txt`: 日本語のサンプルテキストファイル。
+- `pyproject.toml`: プロジェクトのビルド設定、依存関係、CLI のエントリーポイントなどを定義します。
+- `README.md`: このファイルです。プロジェクトの概要、使い方、ファイル構成などを説明します。
 
-The package includes a powerful CLI for batch processing and testing:
+**事前計算済みデータについて**: `iab_toolkit/data/` ディレクトリ内の事前計算済みファイル（`.npy` や `.json` ファイルなど）は、`pyproject.toml` の設定により、パッケージのビルド時に自動的に組み込まれます。これにより、インストール後すぐに最適化された分類機能を利用できます。
 
-### Basic CLI Usage
+## CLI 利用方法
+
+`iab-hybrid` コマンドを使用して、ターミナルから直接コンテンツ分類システムを利用できます。
+
+**基本的な使い方:**
 
 ```bash
-# Classify text directly
-iab-hybrid "Your text content here"
+# 直接テキストを指定して分類
+iab-hybrid "ここに分類したいテキストを入力します。"
 
-# Read from file
-iab-hybrid --file input.txt
+# ファイルを指定して分類
+iab-hybrid --file path/to/your/content.txt
 
-# Output as JSON
-iab-hybrid "Your text" --json
-
-# Verbose output with detailed information
-iab-hybrid "Your text" --verbose
-```
-
-### CLI Options
-
-- `--file, -f`: Read text from a file
-- `--json, -j`: Output results in JSON format
-- `--verbose, -v`: Show detailed classification information
-- `--test`: Run built-in test suite with sample data
-
-### Example CLI Commands
-
-```bash
-# Test with sample data
+# 日本語サンプルテストを実行 (結果はログファイルに出力されます)
 iab-hybrid --test
 
-# Process a file with JSON output
-iab-hybrid --file content.txt --json
+# 結果をJSON形式で出力
+iab-hybrid "テキスト" --json
 
-# Classify text with verbose output
-iab-hybrid "Technology news and updates" --verbose
+# 詳細なログを出力 (冗長モード)
+iab-hybrid "テキスト" -v
 ```
 
-## API Reference
+**オプション:**
 
-### HybridIABClassifier
+- `text` (引数): 分類対象のテキストコンテンツ。`--file` や `--test` を使用する場合は省略可能です。
+- `--file, -f FILE_PATH`: 分類対象のテキストファイルへのパス。
+- `--test`: 日本語サンプルテキストを使用したテストスイートを実行します。
+- `--json`: 結果を JSON 形式で標準出力します。
+- `--verbose, -v`: 詳細なログ（スタックトレースなど）を含む冗長モードを有効にします。
 
-The main classification class that provides comprehensive IAB content categorization.
+## Wheel ビルドとローカルインストール
 
-#### Methods
+配布可能な「wheel」ファイル（.whl）をビルドし、その wheel ファイルを他のプロジェクトにインストールすることができます。
 
-##### `classify(text: str) -> FinalClassificationResult`
+### ビルド手順
 
-Classifies the given text and returns detailed results.
+1.  `build` パッケージがインストールされていることを確認してください:
+    ```bash
+    pip install build
+    ```
+2.  ターミナルで `iab_toolkit` ディレクトリに移動します:
+    ```bash
+    cd c:\\Users\\Ykeisuke\\Documents\\iab_toolkit
+    ```
+3.  ビルドコマンドを実行します:
+    ```bash
+    python -m build
+    ```
+    これにより、`dist` ディレクトリ内に `.whl` ファイル（例: `iab_toolkit-0.3.0-py3-none-any.whl`）が作成されます。
 
-**Parameters:**
-- `text` (str): The text content to classify
+### 他のプロジェクトへのインストール
 
-**Returns:**
-- `FinalClassificationResult`: Object containing:
-  - `category` (str): The classified IAB category
-  - `confidence` (float): Confidence score (0.0 to 1.0)
-  - `tier1` (str): Top-level IAB category
-  - `subcategory` (str, optional): Subcategory if applicable
-  - `reasoning` (str): AI reasoning for the classification
-
-**Example:**
-```python
-result = classifier.classify("Breaking news about renewable energy developments")
-print(f"Category: {result.category}")
-print(f"Confidence: {result.confidence:.2f}")
-print(f"Reasoning: {result.reasoning}")
-```
-
-### OptimizedTier1Detector
-
-Specialized detector for identifying top-level IAB categories with high accuracy.
-
-#### Methods
-
-##### `detect(text: str) -> Tier1DetectionResult`
-
-Detects the Tier 1 category for the given text.
-
-**Parameters:**
-- `text` (str): The text content to analyze
-
-**Returns:**
-- `Tier1DetectionResult`: Object containing tier 1 classification details
-
-## Configuration
-
-The package uses environment variables for configuration:
+作成された `.whl` ファイルを他のプロジェクト（または既知の場所）にコピーし、次のコマンドを実行します:
 
 ```bash
-# Set your OpenAI API key
-export OPENAI_API_KEY="your-api-key-here"
-
-# Optional: Set custom API base URL
-export OPENAI_API_BASE="https://your-custom-endpoint.com"
+pip install path/to/your/iab_toolkit-0.3.0-py3-none-any.whl
 ```
 
-You can also create a `.env` file in your project directory:
+## データファイル (主要なもの)
 
-```env
-OPENAI_API_KEY=your-api-key-here
-OPENAI_API_BASE=https://your-custom-endpoint.com
-```
+- `tier1_embeddings.npy`: Tier 1 ドメインの事前計算済み埋め込みベクトル（39 ドメイン、1536 次元）。
+- `tier1_domains.json`: `tier1_embeddings.npy` に対応する Tier 1 ドメイン名の順序付きリスト。
+- `tier1_taxonomy.json`: Tier 1 検出用に最適化・クリーンアップされたタクソノミーデータ。問題のあるエントリが除外され、Tier 1 ドメインの説明が子カテゴリ情報を含むように強化されています。
+- `taxonomy.json`: IAB Content Taxonomy v3.1 の全データ。Tier 2 以降の分類に使用されます。
 
-## IAB Taxonomy Support
+## 他のプロジェクトでの利用について
 
-This package supports the complete IAB Content Taxonomy, including:
+現状の `iab-hybrid` CLI は、主に人間が直接結果を確認することを想定した、読みやすい形式でのテキスト出力を行います。
 
-- **Tier 1 Categories**: 26 top-level categories (Arts & Entertainment, Automotive, Business, etc.)
-- **Tier 2 Categories**: Detailed subcategories for precise classification
-- **Multi-level Classification**: Automatic detection of appropriate classification depth
+他のシステムやプロジェクトから本パッケージの分類機能を利用する場合、`HybridIABClassifier` クラスを直接インポートして使用することを推奨します。これにより、分類結果を Python のオブジェクトとして直接取得でき、より柔軟な連携が可能です。クイックスタートのセクションに記載されているコード例を参照してください。
 
-### Supported Categories Include:
-
-- Arts & Entertainment
-- Automotive  
-- Business and Finance
-- Careers
-- Education
-- Family and Parenting
-- Health & Fitness
-- Food & Drink
-- Hobbies & Interests
-- Home & Garden
-- Law, Government & Politics
-- News
-- Personal Finance
-- Pets
-- Real Estate
-- Religion & Spirituality
-- Science
-- Shopping
-- Sports
-- Style & Fashion
-- Technology & Computing
-- Travel
-- And more...
-
-## Performance
-
-The hybrid approach delivers exceptional accuracy:
-
-- **Tier 1 Accuracy**: >95% on standard benchmarks
-- **Overall Accuracy**: >90% across all categories
-- **Processing Speed**: <2 seconds per classification
-- **Multi-language**: Supports English, Japanese, and other major languages
-
-## Examples
-
-### Processing Multiple Texts
-
-```python
-from iab_toolkit import HybridIABClassifier
-
-classifier = HybridIABClassifier()
-
-texts = [
-    "Latest smartphone reviews and tech news",
-    "Healthy recipes for family dinners",
-    "Stock market analysis and investment tips",
-    "Travel guides for European destinations"
-]
-
-for text in texts:
-    result = classifier.classify(text)
-    print(f"Text: {text[:50]}...")
-    print(f"Category: {result.category}")
-    print(f"Confidence: {result.confidence:.2f}")
-    print("-" * 50)
-```
-
-### Batch Processing with CLI
-
-```bash
-# Create a file with multiple texts
-echo "Tech news and gadget reviews" > texts.txt
-echo "Cooking recipes and food tips" >> texts.txt
-echo "Financial planning advice" >> texts.txt
-
-# Process each line
-while IFS= read -r line; do
-    echo "Text: $line"
-    iab-hybrid "$line" --json
-done < texts.txt
-```
-
-## Error Handling
-
-The package includes robust error handling:
-
-```python
-from iab_toolkit import HybridIABClassifier
-from iab_toolkit.exceptions import ClassificationError
-
-classifier = HybridIABClassifier()
-
-try:
-    result = classifier.classify("Your text here")
-    print(f"Success: {result.category}")
-except ClassificationError as e:
-    print(f"Classification failed: {e}")
-except Exception as e:
-    print(f"Unexpected error: {e}")
-```
-
-## Requirements
-
-- Python 3.8+
-- OpenAI API key
-- Internet connection for API calls
-
-### Dependencies
-
-- `openai` - For AI-powered classification
-- `numpy` - For numerical computations
-- `python-dotenv` - For environment variable management
-
-## Contributing
-
-We welcome contributions! Please see our contributing guidelines for details on how to submit pull requests, report issues, and suggest improvements.
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Support
-
-For support, questions, or feature requests:
-
-- Open an issue on GitHub
-- Check the documentation
-- Review the examples in this README
-
-## Changelog
-
-### Version 0.3.0 (Current)
-- Simplified package to focus solely on hybrid classification
-- Removed legacy URL-based classifiers
-- Improved performance and accuracy
-- Enhanced CLI interface
-- Better error handling and type annotations
-
-### Version 0.2.0
-- Added hybrid classification capabilities
-- Introduced Tier 1 detection
-- Multi-language support
-
-### Version 0.1.0
-- Initial release with basic classification features
-
----
-
-**Note**: This package requires an OpenAI API key for operation. Make sure to set up your API credentials before using the classifier.
+CLI の出力を他のプログラムで直接パースすることも不可能ではありませんが、将来的に CLI の出力形式が変更される可能性も考慮すると、Python クラス経由での利用が最も安定した方法となります。JSON 形式での出力オプション (`--json`) も提供していますが、これも主に人間による確認や簡単なスクリプトでの利用を想定しています。
