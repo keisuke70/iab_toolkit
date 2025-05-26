@@ -1,11 +1,19 @@
-"""IAB Content Taxonomy v3.1 Classifier
+"""IAB Content Taxonomy v3.1 Hybrid Classifier
 
-A Python package for classifying web pages into IAB Content Taxonomy v3.1 categories
-using embeddings and GPT fallback.
+A Python package for classifying text content into IAB Content Taxonomy v3.1 categories
+using optimized hybrid approach with embeddings and GPT.
+
+Features:
+- Fast and accurate tier 1 domain detection using precomputed embeddings
+- Intelligent tier 2 classification with GPT-4o-mini
+- Comprehensive user profiling and content analysis
+- Multi-language support including Japanese
 """
 
-from .classify import classify_url
-from .models import CategoryResult, PersonaResult
+from .hybrid import HybridIABClassifier, OptimizedTier1Detector
 
-__version__ = "0.1.0"
-__all__ = ["classify_url", "CategoryResult", "PersonaResult"]
+__version__ = "0.3.0"
+__all__ = [
+    "HybridIABClassifier",
+    "OptimizedTier1Detector"
+]

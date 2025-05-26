@@ -1,2 +1,2 @@
 [console_scripts]
-iab-classify = iab_toolkit.cli:main
+iab-hybrid = iab_toolkit.hybrid.cli:main

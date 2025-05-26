@@ -4,15 +4,15 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "iab-toolkit"
-version = "0.1.0"
-description = "IAB Content Taxonomy v3.1 classifier using embeddings and GPT"
+version = "0.3.0"
+description = "IAB Content Taxonomy v3.1 hybrid classifier using optimized embeddings and GPT"
 readme = "README.md"
 requires-python = ">=3.10"
 authors = [
     {name = "IAB Toolkit", email = "toolkit@example.com"}
 ]
 classifiers = [
-    "Development Status :: 3 - Alpha",
+    "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
@@ -22,10 +22,6 @@ classifiers = [
 ]
 dependencies = [
     "openai>=1.3.7",
-    "httpx",
-    "aiohttp",
-    "beautifulsoup4",
-    "selectolax",
     "numpy",
     "python-dotenv",
 ]
@@ -37,11 +33,11 @@ dev = [
 ]
 
 [project.scripts]
-iab-classify = "iab_toolkit.cli:main"
+iab-hybrid = "iab_toolkit.hybrid.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["iab_toolkit*"]
 
 [tool.setuptools.package-data]
-iab_toolkit = ["data/*"]
+iab_toolkit = ["hybrid/data/*"]
