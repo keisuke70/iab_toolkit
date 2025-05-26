@@ -1,197 +1,197 @@
 [
   {
     "name": "Attractions",
-    "description": "Domain: Attractions. Main categories: Historic Site and Landmark Tours, Bars & Restaurants, Outdoor Activities, Theater Venues, Malls & Shopping Centers, Amusement and Theme Parks, Casinos & Gambling, Zoos & Aquariums, Nightclubs, Museums & Galleries",
+    "description": "Domain: Attractions. Main categories: Historic Site and Landmark Tours, Bars & Restaurants, Outdoor Activities, Theater Venues, Malls & Shopping Centers, Amusement and Theme Parks, Casinos & Gambling, Zoos & Aquariums, Nightclubs, Museums & Galleries. Also includes: Points of interest, tourist spots, leisure destinations, entertainment venues, cultural sites, natural wonders, recreational areas. Keywords: sightseeing, tickets, reviews, opening hours, location, landmark, exhibit, tour.",
     "tier_1": "Attractions"
   },
   {
     "name": "Automotive",
-    "description": "Domain: Automotive. Main categories: Auto Parts, Auto Body Styles, Auto Buying and Selling, Auto Recalls, Motorcycles, Auto Shows, Auto Safety, Auto Insurance, Auto Repair, Dash Cam Videos. Subcategories: Crossover, Certified Pre-Owned Cars, Auto Infotainment Technologies, Green Vehicles, Auto Navigation Systems, Auto Safety Technologies, Sedan, Microcar, Station Wagon, SUV, Off-Road Vehicles, Pickup Trucks, Van, Hatchback, Concept Cars",
+    "description": "Domain: Automotive. Main categories: Auto Parts, Auto Body Styles, Auto Buying and Selling, Auto Recalls, Motorcycles, Auto Shows, Auto Safety, Auto Insurance, Auto Repair, Dash Cam Videos. Subcategories: Crossover, Certified Pre-Owned Cars, Auto Infotainment Technologies, Green Vehicles, Auto Navigation Systems, Auto Safety Technologies, Sedan, Microcar, Station Wagon, SUV, Off-Road Vehicles, Pickup Trucks, Van, Hatchback, Concept Cars. Also includes: Electric vehicles (EVs), hybrid cars, autonomous driving, vehicle maintenance, car reviews, automotive news, motorsports, car culture, driving schools, traffic laws. Keywords: engine, transmission, tires, brakes, mileage, VIN, dealership, mechanic.",
     "tier_1": "Automotive"
   },
   {
     "name": "Books and Literature",
-    "description": "Domain: Books and Literature. Main categories: Art and Photography, Poetry, Comics and Graphic Novels, Fiction",
+    "description": "Domain: Books and Literature. Main categories: Art and Photography, Poetry, Comics and Graphic Novels, Fiction. Also includes: Non-fiction, biographies, autobiographies, textbooks, e-books, audiobooks, bestsellers, literary criticism, publishing, authors, genres (e.g., science fiction, fantasy, romance, thriller, mystery, historical fiction). Keywords: reading, library, bookstore, author, publisher, ISBN, chapter, novel, prose.",
     "tier_1": "Books and Literature"
   },
   {
     "name": "Business and Finance",
-    "description": "Domain: Business and Finance. Main categories: Industries, Business, Economy. Subcategories: Hospitality Industry, Defense Industry, Information Services Industry, Manufacturing Industry, Business Utilities, Publishing Industry, Gasoline Prices, Civil Engineering Industry, Metals Industry, Power and Energy Industry, Telecommunications Industry, Advertising Industry, Automotive Industry, Entertainment Industry, Business I.T.. Specific topics: Private Equity, Sale & Lease Back, Mergers and Acquisitions, Angel Investment, Bankruptcy, Recalls, Venture Capital, Debt Factoring & Invoice Discounting, Business Loans",
+    "description": "Domain: Business and Finance. Main categories: Industries, Business, Economy. Subcategories: Hospitality Industry, Defense Industry, Information Services Industry, Manufacturing Industry, Business Utilities, Publishing Industry, Gasoline Prices, Civil Engineering Industry, Metals Industry, Power and Energy Industry, Telecommunications Industry, Advertising Industry, Automotive Industry, Entertainment Industry, Business I.T.. Specific topics: Private Equity, Sale & Lease Back, Mergers and Acquisitions, Angel Investment, Bankruptcy, Recalls, Venture Capital, Debt Factoring & Invoice Discounting, Business Loans. Also includes: Stock market, investments, banking, accounting, entrepreneurship, startups, corporate finance, financial news, economic indicators, market trends, cryptocurrency, insurance, real estate investment. Keywords: shares, bonds, forex, GDP, inflation, interest rates, profit, revenue, assets, liabilities.",
     "tier_1": "Business and Finance"
   },
   {
     "name": "Careers",
-    "description": "Domain: Careers. Main categories: Career Planning, Career Advice, Apprenticeships, Remote Working, Vocational Training, Job Search. Subcategories: Resume Writing and Advice, Job Fairs",
+    "description": "Domain: Careers. Main categories: Career Planning, Career Advice, Apprenticeships, Remote Working, Vocational Training, Job Search. Subcategories: Resume Writing and Advice, Job Fairs. Also includes: Job listings, employment, work-life balance, professional development, networking, interviews, salary negotiation, internships, freelancing, gig economy, human resources, promotions, entrepreneurship. Keywords: CV, cover letter, skills, qualifications, industry, occupation, profession, employment.",
     "tier_1": "Careers"
   },
   {
     "name": "Communication",
-    "description": "Domain: Communication",
+    "description": "Domain: Communication. Main categories: Interpersonal communication, Mass media, Journalism, Public relations, Social media, Telecommunications, Digital communication, Corporate communication, Technical writing, Broadcasting, News dissemination, Information exchange. Also includes: Marketing communications, advertising, linguistics, semantics, non-verbal communication, public speaking, crisis communication, internal communications, media studies, content creation. Keywords: message, audience, channel, feedback, signal, network, platform, discourse.",
     "tier_1": "Communication"
   },
   {
     "name": "Crime",
-    "description": "Domain: Crime",
+    "description": "Domain: Crime. Main categories: Criminal justice, Law enforcement, Types of crime (e.g., theft, assault, cybercrime, white-collar crime), Criminology, Forensic science, Legal proceedings related to crime, Crime prevention, Victimology, Organized crime, Juvenile delinquency. Also includes: Police, courts, prisons, investigations, evidence, trials, sentencing, rehabilitation, security, fraud, corruption, domestic violence. Keywords: suspect, victim, witness, arrest, conviction, felony, misdemeanor, investigation.",
     "tier_1": "Crime"
   },
   {
     "name": "Disasters",
-    "description": "Domain: Disasters",
+    "description": "Domain: Disasters. Main categories: Natural disasters (e.g., earthquakes, hurricanes, floods, wildfires), Man-made disasters (e.g., industrial accidents, oil spills), Disaster preparedness, Emergency response, Disaster recovery, Humanitarian aid, Climate change impacts, Risk assessment, Early warning systems. Also includes: Pandemics, tsunamis, volcanic eruptions, droughts, terrorism impacts, emergency services (fire, ambulance, police), evacuation plans, shelters, first aid, international relief efforts. Keywords: emergency, alert, safety, survival, aid, relief, hazard, catastrophe.",
     "tier_1": "Disasters"
   },
   {
     "name": "Education",
-    "description": "Domain: Education. Main categories: Homework and Study, Educational Assessment, Early Childhood Education, Secondary Education, Homeschooling, Online Education, Private School, College Education, Adult Education, Primary Education. Subcategories: Postgraduate Education, Standardized Testing, Undergraduate Education, College Planning. Specific topics: Professional School",
+    "description": "Domain: Education. Main categories: Homework and Study, Educational Assessment, Early Childhood Education, Secondary Education, Homeschooling, Online Education, Private School, College Education, Adult Education, Primary Education. Subcategories: Postgraduate Education, Standardized Testing, Undergraduate Education, College Planning. Specific topics: Professional School. Also includes: Curriculum, pedagogy, e-learning, MOOCs, scholarships, student loans, academic research, special education, vocational schools, language learning, educational technology (EdTech), tutoring. Keywords: teacher, student, school, university, degree, diploma, learning, teaching, syllabus, campus.",
     "tier_1": "Education"
   },
   {
     "name": "Entertainment",
-    "description": "Domain: Entertainment. Main categories: Religious (Music and Audio), Oldies/Adult Standards, Movies, Classic Hits, Urban Contemporary Music, Dance and Electronic Music, Adult Album Alternative, Variety (Music and Audio), Music, Songwriters/Folk. Subcategories: Hard Rock, Urban AC Music, Album-oriented Rock, Soft AC Music, Alternative Rock, Soft Rock, Classic Rock",
+    "description": "Domain: Entertainment. Main categories: Religious (Music and Audio), Oldies/Adult Standards, Movies, Classic Hits, Urban Contemporary Music, Dance and Electronic Music, Adult Album Alternative, Variety (Music and Audio), Music, Songwriters/Folk. Subcategories: Hard Rock, Urban AC Music, Album-oriented Rock, Soft AC Music, Alternative Rock, Soft Rock, Classic Rock. Also includes: Television shows, streaming services (Netflix, Hulu, etc.), celebrity news, awards shows (Oscars, Grammys), performing arts (theater, dance, opera), comedy shows, concerts, festivals, nightlife, pop culture. Keywords: film, series, actor, director, musician, album, song, ticket, show, performance.",
     "tier_1": "Entertainment"
   },
   {
     "name": "Events",
-    "description": "Domain: Events. Main categories: Fan Conventions, Business Expos & Conferences, Awards Shows",
+    "description": "Domain: Events. Main categories: Exhibitions, Trade shows, Festivals, Concerts, Conferences, Seminars, Workshops, Cultural events, Sporting events, Community gatherings, Product launches, Ceremonies, Fundraisers, Fan Conventions, Business Expos & Conferences, Awards Shows. Keywords: tickets, schedule, venue, participation, attendees, presentations, performances, gatherings. Also includes: Webinars, virtual events, meetups, networking events, charity events, public lectures, art fairs, film festivals, music festivals, food festivals. Keywords: registration, agenda, speaker, host, location, date, time, RSVP.",
     "tier_1": "Events"
   },
   {
     "name": "Family and Relationships",
-    "description": "Domain: Family and Relationships. Main categories: Dating, Marriage and Civil Unions, Parenting, Single Life, Bereavement, Divorce, Eldercare. Subcategories: Special Needs Kids, Internet Safety, Daycare and Pre-School, Parenting Babies and Toddlers, Adoption and Fostering, Parenting Children Aged 4-11, Parenting Teens",
+    "description": "Domain: Family and Relationships. Main categories: Dating, Marriage and Civil Unions, Parenting, Single Life, Bereavement, Divorce, Eldercare. Subcategories: Special Needs Kids, Internet Safety, Daycare and Pre-School, Parenting Babies and Toddlers, Adoption and Fostering, Parenting Children Aged 4-11, Parenting Teens. Also includes: Friendship, love, cohabitation, separation, family therapy, counseling, child development, genealogy, domestic partnerships, blended families. Keywords: partner, spouse, child, parent, sibling, relative, support, love, connection.",
     "tier_1": "Family and Relationships"
   },
   {
     "name": "Fine Art",
-    "description": "Domain: Fine Art. Main categories: Dance, Design, Modern Art, Fine Art Photography, Digital Arts, Costume, Opera, Theater",
+    "description": "Domain: Fine Art. Main categories: Dance, Design, Modern Art, Fine Art Photography, Digital Arts, Costume, Opera, Theater. Also includes: Painting, sculpture, architecture, classical music, contemporary art, art history, art criticism, galleries, museums, exhibitions, auctions, installations, performance art. Keywords: artist, masterpiece, collection, exhibit, style, medium, gallery, museum, canvas, brush.",
     "tier_1": "Fine Art"
   },
   {
     "name": "Food & Drink",
-    "description": "Domain: Food & Drink. Main categories: World Cuisines, Vegan Diets, Vegetarian Diets, Food Allergies, Barbecues and Grilling, Dining Out, Non-Alcoholic Beverages, Cooking, Alcoholic Beverages, Food Movements",
+    "description": "Domain: Food & Drink. Main categories: World Cuisines, Vegan Diets, Vegetarian Diets, Food Allergies, Barbecues and Grilling, Dining Out, Non-Alcoholic Beverages, Cooking, Alcoholic Beverages, Food Movements. Also includes: Recipes, restaurants, cafes, bars, nutrition, healthy eating, organic food, local produce, farming, food industry, culinary arts, baking, desserts, snacks, beverages (coffee, tea, juice, wine, beer, spirits). Keywords: ingredients, menu, chef, taste, flavor, recipe, restaurant, cuisine, dish.",
     "tier_1": "Food & Drink"
   },
   {
     "name": "Genres",
-    "description": "Domain: Genres. Main categories: Comedy, Drama, Family/Children, Young Adult, Sports Radio, History, Mystery, Factual, Special Interest (Indie/Art House), Animation & Anime. Subcategories: Public Radio",
+    "description": "Domain: Genres. Main categories: Comedy, Drama, Family/Children, Young Adult, Sports Radio, History, Mystery, Factual, Special Interest (Indie/Art House), Animation & Anime. Subcategories: Public Radio. Also includes media genres like: Science Fiction (Sci-Fi), Fantasy, Horror, Thriller, Romance, Action, Adventure, Documentary, Musical, Western, Crime (genre), War (genre). Keywords: plot, character, setting, theme, narrative, storytelling, category, type.",
     "tier_1": "Genres"
   },
   {
     "name": "Healthy Living",
-    "description": "Domain: Healthy Living. Main categories: Nutrition, Women's Health, Senior Health, Fitness and Exercise, Weight Loss, Wellness, Children's Health, Men's Health. Subcategories: Alternative Medicine, Smoking Cessation, Participant Sports, Physical Therapy, Running and Jogging. Specific topics: Holistic Health, Herbs and Supplements",
+    "description": "Domain: Healthy Living. Main categories: Nutrition, Women's Health, Senior Health, Fitness and Exercise, Weight Loss, Wellness, Children's Health, Men's Health. Subcategories: Alternative Medicine, Smoking Cessation, Participant Sports, Physical Therapy, Running and Jogging. Specific topics: Holistic Health, Herbs and Supplements. Also includes: Mental health, stress management, sleep, hygiene, preventative care, yoga, meditation, mindfulness, organic foods, dietary supplements, public health initiatives. Keywords: diet, exercise, well-being, lifestyle, prevention, fitness, nutrition, health.",
     "tier_1": "Healthy Living"
   },
   {
     "name": "Hobbies & Interests",
-    "description": "Domain: Hobbies & Interests. Main categories: Model Toys, Paranormal Phenomena, Workshops and Classes, Musical Instruments, Radio Control, Cigars, Arts and Crafts, Antiquing and Antiques, Beekeeping, Genealogy and Ancestry. Subcategories: Roleplaying Games, Comic Books, Photography, Beadwork, Woodworking, Needlework, Painting, Screenwriting, Freelance Writing, Card Games, Drawing and Sketching, Jewelry Making, Video Production, Candle and Soap Making, Audio Production",
+    "description": "Domain: Hobbies & Interests. Main categories: Model Toys, Paranormal Phenomena, Workshops and Classes, Musical Instruments, Radio Control, Cigars, Arts and Crafts, Antiquing and Antiques, Beekeeping, Genealogy and Ancestry. Subcategories: Roleplaying Games, Comic Books, Photography, Beadwork, Woodworking, Needlework, Painting, Screenwriting, Freelance Writing, Card Games, Drawing and Sketching, Jewelry Making, Video Production, Candle and Soap Making, Audio Production. Also includes: Collecting (stamps, coins), gardening, DIY projects, bird watching, fishing, hunting, board games, puzzles, astronomy, learning languages, volunteering. Keywords: leisure, pastime, craft, skill, collection, hobby, activity, interest.",
     "tier_1": "Hobbies & Interests"
   },
   {
     "name": "Holidays",
-    "description": "Domain: Holidays. Main categories: National & Civic Holidays",
+    "description": "Domain: Holidays. Main categories: National & Civic Holidays. Also includes: Religious holidays (Christmas, Easter, Hanukkah, Diwali, Eid), cultural festivals, observances, vacations, travel during holidays, holiday traditions, celebrations, public holidays, long weekends. Keywords: vacation, celebration, festival, tradition, observance, getaway, break.",
     "tier_1": "Holidays"
   },
   {
     "name": "Home & Garden",
-    "description": "Domain: Home & Garden. Main categories: Landscaping, Home Security, Interior Decorating, Gardening, Home Entertaining, Outdoor Decorating, Indoor Environmental Quality, Home Improvement, Remodeling & Construction, Smart Home",
+    "description": "Domain: Home & Garden. Main categories: Landscaping, Home Security, Interior Decorating, Gardening, Home Entertaining, Outdoor Decorating, Indoor Environmental Quality, Home Improvement, Remodeling & Construction, Smart Home. Also includes: DIY home projects, furniture, appliances, home maintenance, cleaning, organizing, real estate (aspects of living in a home), sustainable living, pest control, home automation. Keywords: house, apartment, decor, renovation, tools, plants, furniture, garden, DIY.",
     "tier_1": "Home & Garden"
   },
   {
     "name": "Law",
-    "description": "Domain: Law",
+    "description": "Domain: Law. Main categories: Legal systems, Branches of law (e.g., civil, criminal, corporate, international, family law), Legislation, Court proceedings, Legal profession (lawyers, judges), Human rights, Constitutional law, Legal disputes, Legal theory and jurisprudence. Also includes: Contracts, property law, torts, intellectual property, environmental law, immigration law, legal aid, arbitration, mediation, notary services. Keywords: attorney, solicitor, barrister, court, judge, rights, justice, regulation, legislation, litigation.",
     "tier_1": "Law"
   },
   {
     "name": "Maps & Navigation",
-    "description": "Domain: Maps & Navigation",
+    "description": "Domain: Maps & Navigation. Main categories: Cartography, Geographic Information Systems (GIS), GPS technology, Route planning, Digital maps, Satellite imagery, Geolocation services, Wayfinding, Topography, Nautical and aeronautical charts, Location-based services. Also includes: Street view, traffic information, public transport routes, cycling paths, hiking trails, orienteering, surveying, geocaching, address lookup, coordinate systems. Keywords: GPS, directions, route, location, address, coordinates, map, navigation, traffic.",
     "tier_1": "Maps & Navigation"
   },
   {
     "name": "Medical Health",
-    "description": "Domain: Medical Health. Main categories: Diseases and Conditions, Vaccines, Surgery, Pharmaceutical Drugs, Medical Tests, Cosmetic Medical Services. Subcategories: Blood Disorders, Cold and Flu, Sexual Health, Digestive Disorders, Skin and Dermatology, Dental Health, Mental Health, Brain and Nervous System Disorders, Injuries, Cancer, Infectious Diseases, Substance Abuse, Endocrine and Metabolic Diseases, Diabetes, Allergies. Specific topics: Sexual Conditions, Thyroid Disorders, Pregnancy, First Aid, Birth Control, Menopause, Hormonal Disorders, Infertility",
+    "description": "Domain: Medical Health. Main categories: Diseases and Conditions, Vaccines, Surgery, Pharmaceutical Drugs, Medical Tests, Cosmetic Medical Services. Subcategories: Blood Disorders, Cold and Flu, Sexual Health, Digestive Disorders, Skin and Dermatology, Dental Health, Mental Health, Brain and Nervous System Disorders, Injuries, Cancer, Infectious Diseases, Substance Abuse, Endocrine and Metabolic Diseases, Diabetes, Allergies. Specific topics: Sexual Conditions, Thyroid Disorders, Pregnancy, First Aid, Birth Control, Menopause, Hormonal Disorders, Infertility. Also includes: Hospitals, clinics, doctors, nurses, specialists, diagnosis, treatment, prevention, research, public health, health insurance, emergency medicine, pediatrics, geriatrics. Keywords: symptom, diagnosis, treatment, medicine, doctor, hospital, patient, clinic, illness, wellness.",
     "tier_1": "Medical Health"
   },
   {
     "name": "Personal Celebrations & Life Events",
-    "description": "Domain: Personal Celebrations & Life Events. Main categories: Birth, Anniversary, Bachelor Party, Bachelorette Party, Graduation, Prom, Wedding, Birthday, Funeral, Baby Shower",
+    "description": "Domain: Personal Celebrations & Life Events. Main categories: Birth, Anniversary, Bachelor Party, Bachelorette Party, Graduation, Prom, Wedding, Birthday, Funeral, Baby Shower. Also includes: Engagements, retirement parties, religious milestones (christenings, bar/bat mitzvahs), housewarming parties, job promotions, significant achievements, memorials. Keywords: party, gift, invitation, congratulations, ceremony, celebration, milestone, occasion.",
     "tier_1": "Personal Celebrations & Life Events"
   },
   {
     "name": "Personal Finance",
-    "description": "Domain: Personal Finance. Main categories: Personal Investing, Personal Debt, Financial Planning, Consumer Banking, Financial Assistance, Retirement Planning, Home Utilities, Insurance, Personal Taxes, Frugal Living. Subcategories: Hedge Funds, Student Loans, Phone Services, Travel Insurance, Home Insurance, Government Support and Welfare, Life Insurance, Health Insurance, Gas and Electric, Stocks and Bonds, Water Services, Motor Insurance, Home Financing, Personal Loans, Mutual Funds",
+    "description": "Domain: Personal Finance. Main categories: Personal Investing, Personal Debt, Financial Planning, Consumer Banking, Financial Assistance, Retirement Planning, Home Utilities, Insurance, Personal Taxes, Frugal Living. Subcategories: Hedge Funds, Student Loans, Phone Services, Travel Insurance, Home Insurance, Government Support and Welfare, Life Insurance, Health Insurance, Gas and Electric, Stocks and Bonds, Water Services, Motor Insurance, Home Financing, Personal Loans, Mutual Funds. Also includes: Budgeting, saving, credit scores, loans (mortgage, auto), investment strategies, wealth management, estate planning, financial literacy, scams and fraud prevention. Keywords: money, budget, savings, investment, debt, credit, insurance, bank, loan, mortgage, tax.",
     "tier_1": "Personal Finance"
   },
   {
     "name": "Pets",
-    "description": "Domain: Pets. Main categories: Reptiles, Pet Supplies, Pet Adoptions, Fish and Aquariums, Cats, Birds, Dogs, Veterinary Medicine, Large Animals",
+    "description": "Domain: Pets. Main categories: Reptiles, Pet Supplies, Pet Adoptions, Fish and Aquariums, Cats, Birds, Dogs, Veterinary Medicine, Large Animals. Also includes: Pet food, pet grooming, pet training, animal welfare, animal shelters, exotic pets, farm animals (as pets), pet health, pet insurance. Keywords: animal, dog, cat, bird, fish, breed, care, veterinarian, pet food, leash, collar.",
     "tier_1": "Pets"
   },
   {
     "name": "Politics",
-    "description": "Domain: Politics. Main categories: Elections, Civic affairs, Political Issues & policy",
+    "description": "Domain: Politics. Main categories: Elections, Civic affairs, Political Issues & policy. Also includes: Government, legislation, political parties, ideologies (liberalism, conservatism, socialism), international relations, diplomacy, activism, human rights, public administration, political campaigns, voting, public opinion. Keywords: government, election, vote, policy, law, party, ideology, politician, democracy, activism.",
     "tier_1": "Politics"
   },
   {
     "name": "Pop Culture",
-    "description": "Domain: Pop Culture. Main categories: Celebrity Relationships, Celebrity Style, Celebrity Families, Celebrity Pregnancy, Celebrity Homes, Celebrity Deaths, Celebrity Scandal, Humor and Satire",
+    "description": "Domain: Pop Culture. Main categories: Celebrity Relationships, Celebrity Style, Celebrity Families, Celebrity Pregnancy, Celebrity Homes, Celebrity Deaths, Celebrity Scandal, Humor and Satire. Also includes: Memes, viral trends, internet culture, influencers, fandoms, nostalgia, fashion trends driven by celebrities, reality TV, gossip, entertainment news. Keywords: celebrity, trending, viral, meme, influencer, fan, gossip, popular, buzz.",
     "tier_1": "Pop Culture"
   },
   {
     "name": "Productivity",
-    "description": "Domain: Productivity",
+    "description": "Domain: Productivity. Main categories: Time management, Personal organization, Workflow optimization, Project management, Collaboration tools, Goal setting, Efficiency techniques, Workplace productivity, Software and apps for productivity, Life hacks, Study skills, Business process improvement. Also includes: GTD (Getting Things Done), Pomodoro Technique, task management, note-taking apps, automation, delegation, focus techniques, procrastination avoidance, personal development for efficiency. Keywords: efficiency, organization, schedule, task, goal, focus, workflow, time management, tools.",
     "tier_1": "Productivity"
   },
   {
     "name": "Real Estate",
-    "description": "Domain: Real Estate. Main categories: Developmental Sites, Apartments, Industrial Property, Houses, Real Estate Buying and Selling, Vacation Properties, Land and Farms, Hotel Properties, Office Property, Real Estate Renting and Leasing",
+    "description": "Domain: Real Estate. Main categories: Developmental Sites, Apartments, Industrial Property, Houses, Real Estate Buying and Selling, Vacation Properties, Land and Farms, Hotel Properties, Office Property, Real Estate Renting and Leasing. Also includes: Mortgages, property management, home valuation, real estate agents, brokers, commercial real estate, residential real estate, investment properties, market trends, zoning laws, construction. Keywords: property, house, apartment, land, rent, buy, sell, lease, mortgage, agent, listing.",
     "tier_1": "Real Estate"
   },
   {
     "name": "Religion & Spirituality",
-    "description": "Domain: Religion & Spirituality. Main categories: Judaism, Atheism, Agnosticism, Buddhism, Islam, Christianity, Sikhism, Astrology, Hinduism, Spirituality",
+    "description": "Domain: Religion & Spirituality. Main categories: Judaism, Atheism, Agnosticism, Buddhism, Islam, Christianity, Sikhism, Astrology, Hinduism, Spirituality. Also includes: Mythology, philosophy of religion, ethics, meditation, prayer, rituals, sacred texts, places of worship (churches, temples, mosques, synagogues), new religious movements, interfaith dialogue. Keywords: faith, belief, god, worship, prayer, meditation, spirit, sacred, holy, ritual.",
     "tier_1": "Religion & Spirituality"
   },
   {
     "name": "Science",
-    "description": "Domain: Science. Main categories: Geology, Physics, Genetics, Geography, Space and Astronomy, Weather, Biological Sciences, Chemistry, Environment",
+    "description": "Domain: Science. Main categories: Geology, Physics, Genetics, Geography, Space and Astronomy, Weather, Biological Sciences, Chemistry, Environment. Also includes: Mathematics, engineering, computer science (theoretical aspects), archaeology, anthropology, psychology (as a science), ecology, climate science, scientific method, research, experiments, discoveries, technology (as applied science). Keywords: research, experiment, theory, discovery, data, analysis, laboratory, study, journal.",
     "tier_1": "Science"
   },
   {
     "name": "Sensitive Topics",
-    "description": "Domain: Sensitive Topics. Main categories: Arms & Ammunition, Death, Injury, or Military Conflict, Crime & Harmful Acts to Individuals, Society & Human Right Violations, Spam or Harmful Content, Terrorism, Debated Sensitive Social Issues, Hate Speech and Acts of Aggression, Adult & Explicit Sexual Content, Illegal Drugs, Tobacco, eCigarettes, Vaping, Alcohol, Online Piracy",
+    "description": "Domain: Sensitive Topics. Main categories: Arms & Ammunition, Death, Injury, or Military Conflict, Crime & Harmful Acts to Individuals, Society & Human Right Violations, Spam or Harmful Content, Terrorism, Debated Sensitive Social Issues, Hate Speech and Acts of Aggression, Adult & Explicit Sexual Content, Illegal Drugs, Tobacco, eCigarettes, Vaping, Alcohol, Online Piracy. Also includes: Self-harm, suicide, graphic violence, child abuse, discrimination, extremism, propaganda, misinformation, disinformation, gambling addiction, eating disorders. Keywords: warning, explicit, controversial, illegal, harmful, offensive, mature, restricted, disturbing.",
     "tier_1": "Sensitive Topics"
   },
   {
     "name": "Shopping",
-    "description": "Domain: Shopping. Main categories: Coupons and Discounts, Party Supplies and Decorations, Flower Shopping, Gifts and Greetings Cards, Holiday Shopping, Grocery Shopping, Children's Games and Toys, Household Supplies, Sales and Promotions, Lotteries and Scratchcards",
+    "description": "Domain: Shopping. Main categories: Coupons and Discounts, Party Supplies and Decorations, Flower Shopping, Gifts and Greetings Cards, Holiday Shopping, Grocery Shopping, Children's Games and Toys, Household Supplies, Sales and Promotions, Lotteries and Scratchcards. Also includes: E-commerce, online shopping, retail stores, malls, fashion shopping, electronics shopping, home goods shopping, comparison shopping, reviews, wishlists, loyalty programs. Keywords: buy, purchase, order, sale, discount, store, online, product, cart, checkout, retail.",
     "tier_1": "Shopping"
   },
   {
     "name": "Sports",
-    "description": "Domain: Sports. Main categories: Sports Equipment, Darts, Track and Field, Cycling, Australian Rules Football, Cheerleading, Extreme Sports, Tennis, Figure Skating, Walking. Subcategories: Canoeing and Kayaking, Climbing, College Football, Snowboarding, College Baseball, Surfing and Bodyboarding, Waterskiing and Wakeboarding, Winter Olympic Sports, Horse Racing, Paintball, Rugby League, Summer Olympic Sports, College Basketball, Scuba Diving, Motorcycle Sports",
+    "description": "Domain: Sports. Main categories: Sports Equipment, Darts, Track and Field, Cycling, Australian Rules Football, Cheerleading, Extreme Sports, Tennis, Figure Skating, Walking. Subcategories: Canoeing and Kayaking, Climbing, College Football, Snowboarding, College Baseball, Surfing and Bodyboarding, Waterskiing and Wakeboarding, Winter Olympic Sports, Horse Racing, Paintball, Rugby League, Summer Olympic Sports, College Basketball, Scuba Diving, Motorcycle Sports. Also includes: Major leagues (NFL, NBA, MLB, NHL, Premier League), specific sports (soccer/football, basketball, baseball, hockey, cricket, golf, swimming, gymnastics, martial arts, motorsports), fantasy sports, sports news, betting, Olympics, Paralympics. Keywords: game, match, team, player, score, league, tournament, stadium, athlete, competition, race.",
     "tier_1": "Sports"
   },
   {
     "name": "Style & Fashion",
-    "description": "Domain: Style & Fashion. Main categories: Street Style, Children's Clothing, Women's Fashion, High Fashion, Personal Care, Body Art, Designer Clothing, Beauty, Fashion Trends, Men's Fashion. Subcategories: Women's Shoes and Footwear, Nail Care, Natural and Organic Beauty, Women's Clothing, Oral care, Perfume and Fragrance, Skin Care, Men's Shoes and Footwear, Deodorant and Antiperspirant, Makeup and Accessories, Men's Accessories, Shaving, Women's Accessories, Hair Care, Bath and Shower. Specific topics: Women's Handbags and Wallets, Women's Outerwear, Women's Hats and Scarves, Women's Glasses, Men's Sportswear, Women's Business Wear, Men's Outerwear, Men's Jewelry and Watches, Women's Intimates and Sleepwear, Men's Business Wear",
+    "description": "Domain: Style & Fashion. Main categories: Street Style, Children's Clothing, Women's Fashion, High Fashion, Personal Care, Body Art, Designer Clothing, Beauty, Fashion Trends, Men's Fashion. Subcategories: Women's Shoes and Footwear, Nail Care, Natural and Organic Beauty, Women's Clothing, Oral care, Perfume and Fragrance, Skin Care, Men's Shoes and Footwear, Deodorant and Antiperspirant, Makeup and Accessories, Men's Accessories, Shaving, Women's Accessories, Hair Care, Bath and Shower. Specific topics: Women's Handbags and Wallets, Women's Outerwear, Women's Hats and Scarves, Women's Glasses, Men's Sportswear, Women's Business Wear, Men's Outerwear, Men's Jewelry and Watches, Women's Intimates and Sleepwear, Men's Business Wear. Also includes: Haute couture, ready-to-wear, vintage fashion, sustainable fashion, fashion design, modeling, fashion shows, accessories (jewelry, bags, belts), cosmetics, hairstyling, grooming, seasonal trends. Keywords: clothing, outfit, trend, designer, brand, makeup, accessories, apparel, beauty, cosmetic, runway.",
     "tier_1": "Style & Fashion"
   },
   {
     "name": "Technology & Computing",
-    "description": "Domain: Technology & Computing. Main categories: Computing, Virtual Reality, Consumer Electronics, Robotics, Artificial Intelligence, Augmented Reality. Subcategories: Smartphones, Data Storage and Warehousing, Programming Languages, Internet, Tablets and E-readers, Wearable Technology, Cameras and Camcorders, Computer Networking, Computer Peripherals, Home Entertainment Systems, Laptops, Information and Network Security, Desktops, Computer Software and Applications. Specific topics: Photo Editing Software, Video Software, Internet for Beginners, Social Networking, Computer Animation, Web Conferencing, Cloud Computing, Shareware and Freeware, Email, Desktop Publishing",
+    "description": "Domain: Technology & Computing. Main categories: Computing, Virtual Reality, Consumer Electronics, Robotics, Artificial Intelligence, Augmented Reality. Subcategories: Smartphones, Data Storage and Warehousing, Programming Languages, Internet, Tablets and E-readers, Wearable Technology, Cameras and Camcorders, Computer Networking, Computer Peripherals, Home Entertainment Systems, Laptops, Information and Network Security, Desktops, Computer Software and Applications. Specific topics: Photo Editing Software, Video Software, Internet for Beginners, Social Networking, Web Conferencing, Cloud Computing, Shareware and Freeware, Email, Desktop Publishing. Also includes: Software development, web development, mobile app development, data science, machine learning, cybersecurity, IoT (Internet of Things), blockchain, cryptocurrency technology, gadgets, hardware, operating systems, IT support, tech news, startups. Keywords: software, hardware, app, code, internet, data, device, network, AI, cloud, algorithm, program, cyber.",
     "tier_1": "Technology & Computing"
   },
   {
     "name": "Travel",
-    "description": "Domain: Travel. Main categories: Travel Preparation and Advice, Travel Type, Travel Locations, Travel Accessories. Subcategories: South America Travel, Polar Travel, Australia and Oceania Travel, Africa Travel, Family Travel, Beach Travel, Camping, Spas, Road Trips, North America Travel, Europe Travel, Adventure Travel, Day Trips, Air Travel, Bed & Breakfasts",
+    "description": "Domain: Travel. Main categories: Tourism, Journeys, Vacations, Trips, Itineraries, Bookings (flights, hotels, cars), Accommodation, Transportation, Sightseeing, Travel packages, Guided tours, Travel Preparation and Advice, Travel Type, Travel Locations, Travel Accessories. Subcategories: South America Travel, Polar Travel, Australia and Oceania Travel, Africa Travel, Family Travel, Beach Travel, Camping, Spas, Road Trips, North America Travel, Europe Travel, Adventure Travel, Day Trips, Air Travel, Bed & Breakfasts. Keywords: booking, reservation, itinerary, destination, resort, voyage, expedition, tourism. Also includes: Backpacking, luxury travel, cruises, business travel, travel insurance, visas, passports, currency exchange, travel blogs, vlogs, local culture, language basics for travel, sustainable tourism. Keywords: flight, hotel, car rental, map, guide, luggage, passport, visa, explore, adventure.",
     "tier_1": "Travel"
   },
   {
     "name": "Video Gaming",
-    "description": "Domain: Video Gaming. Main categories: Video Game Genres, Mobile Games, Console Games, PC Games, eSports. Subcategories: Family Video Games, MMOs, Horror Video Games, Sports Video Games, Educational Video Games, Simulation Video Games, Puzzle Video Games, Casual Games, Music and Party Video Games, Adult Video Games, Strategy Video Games, Racing Video Games, Adventure Video Games, Role-Playing Video Games, Action Video Games",
+    "description": "Domain: Video Gaming. Main categories: Video Game Genres, Mobile Games, Console Games, PC Games, eSports. Subcategories: Family Video Games, MMOs, Horror Video Games, Sports Video Games, Educational Video Games, Simulation Video Games, Puzzle Video Games, Casual Games, Music and Party Video Games, Adult Video Games, Strategy Video Games, Racing Video Games, Adventure Video Games, Role-Playing Video Games, Action Video Games. Also includes: Game development, game design, streaming (Twitch, YouTube Gaming), gaming hardware (consoles, PCs, accessories), game reviews, gaming communities, indie games, retro gaming, virtual reality (VR) gaming, augmented reality (AR) gaming. Keywords: game, console, PC, mobile, esports, stream, RPG, FPS, MMO, controller, joystick, level, quest.",
     "tier_1": "Video Gaming"
   },
   {
     "name": "War and Conflicts",
-    "description": "Domain: War and Conflicts",
+    "description": "Domain: War and Conflicts. Main categories: Military operations, International relations, Geopolitics, Armed conflicts, Peacekeeping, Treaties and diplomacy, Defense industry, Veterans affairs, Espionage and intelligence, Historical wars, Conflict resolution, Insurgency and counter-insurgency. Also includes: Cyberwarfare, weapons systems, military strategy, tactics, war history, war crimes, refugees, humanitarian impact of conflict, non-proliferation, arms control. Keywords: military, army, navy, air force, battle, soldier, weapon, peace, treaty, conflict, defense, veteran.",
     "tier_1": "War and Conflicts"
   }
 ]
