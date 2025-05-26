@@ -249,7 +249,7 @@ Response format (JSON):
             client = _get_client(async_=False)
             
             response = client.chat.completions.create(
-                model="gpt-4o-mini",
+                model="gpt-4.1-nano",
                 messages=[
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": f"Analyze and classify this content:\n\n{text[:2000]}"}
