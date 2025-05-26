@@ -128,7 +128,9 @@ def generate_client_report():
                 # Show tier2 categories
                 if result.tier2_categories:
                     print(">>> 推定Tier2カテゴリ:")
-                    for j, cat in enumerate(result.tier2_categories, 1):
+                    # Sort Tier 2 categories by confidence in descending order
+                    sorted_tier2_categories = sorted(result.tier2_categories, key=lambda x: x.get('confidence', 0.0), reverse=True)
+                    for j, cat in enumerate(sorted_tier2_categories, 1):
                         name_cat = cat.get('name', 'Unknown')
                         confidence = cat.get('confidence', 0.0)
                         print(f"    {j}. {name_cat} (信頼度: {confidence:.1%})")

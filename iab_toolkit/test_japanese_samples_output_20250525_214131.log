@@ -1,5 +1,5 @@
 ================================================================================
-COMPREHENSIVE JAPANESE TEXT CLASSIFICATION TEST - LOG AT 2025-05-25 21:11:59.586807
+COMPREHENSIVE JAPANESE TEXT CLASSIFICATION TEST - LOG AT 2025-05-25 21:41:31.433475
 ================================================================================
 🎯 Testing hybrid system with real Japanese content
 📊 Using .npy embeddings for tier1 + LLM for tier2
@@ -27,23 +27,23 @@ Primary domain: Style & Fashion (confidence: 0.231)
 Step 2: Retrieving Tier 2 categories...
 Found 10 Tier 2 categories in Style & Fashion
 Step 3: LLM-based Tier 2 classification with user profiling...
-Classification completed in 4.396 seconds
+Classification completed in 3.213 seconds
 🎯 分類結果:
    ✅ Tier1ドメイン: Style & Fashion
    📈 期待値: Style & Fashion
    ✓ 正確性: 正解
 
 🏷️  Tier2カテゴリ (TOP 2):
-   1. Women's Fashion (80.0%)
-   2. Beauty (90.0%)
+   1. Beauty (90.0%)
+   2. Women's Fashion (80.0%)
 
 👤 ユーザープロファイル:
    年齢層: 30-45
    技術レベル: 6/10
    コンテンツ洗練度: intermediate
-   ユーザー層: health-conscious, environmentally aware women, possibly professionals or homemakers interested in natural beauty products
+   ユーザー層: health-conscious women, environmentally aware consumers
 
-⏱️  処理時間: 4.396秒
+⏱️  処理時間: 3.213秒
 
 ------------------------------------------------------------
 
@@ -61,7 +61,7 @@ Primary domain: Automotive (confidence: 0.254)
 Step 2: Retrieving Tier 2 categories...
 Found 16 Tier 2 categories in Automotive
 Step 3: LLM-based Tier 2 classification with user profiling...
-Classification completed in 4.120 seconds
+Classification completed in 2.448 seconds
 🎯 分類結果:
    ✅ Tier1ドメイン: Automotive
    📈 期待値: Automotive
@@ -77,7 +77,7 @@ Classification completed in 4.120 seconds
    コンテンツ洗練度: intermediate
    ユーザー層: middle-aged, environmentally conscious, outdoor and family-oriented consumers
 
-⏱️  処理時間: 4.120秒
+⏱️  処理時間: 2.448秒
 
 ------------------------------------------------------------
 
@@ -95,7 +95,7 @@ Primary domain: Technology & Computing (confidence: 0.223)
 Step 2: Retrieving Tier 2 categories...
 Found 6 Tier 2 categories in Technology & Computing
 Step 3: LLM-based Tier 2 classification with user profiling...
-Classification completed in 2.607 seconds
+Classification completed in 3.197 seconds
 🎯 分類結果:
    ✅ Tier1ドメイン: Technology & Computing
    📈 期待値: Technology & Computing
@@ -107,11 +107,11 @@ Classification completed in 2.607 seconds
 
 👤 ユーザープロファイル:
    年齢層: 30-45
-   技術レベル: 7/10
+   技術レベル: 8/10
    コンテンツ洗練度: advanced
-   ユーザー層: tech-savvy professional, early adopter of new technology
+   ユーザー層: tech enthusiast, early adopter, professional user seeking high-end mobile technology
 
-⏱️  処理時間: 2.607秒
+⏱️  処理時間: 3.197秒
 
 ------------------------------------------------------------
 
@@ -129,7 +129,7 @@ Primary domain: Business and Finance (confidence: 0.208)
 Step 2: Retrieving Tier 2 categories...
 Found 3 Tier 2 categories in Business and Finance
 Step 3: LLM-based Tier 2 classification with user profiling...
-Classification completed in 3.452 seconds
+Classification completed in 3.411 seconds
 🎯 分類結果:
    ✅ Tier1ドメイン: Business and Finance
    📈 期待値: Business and Finance
@@ -143,9 +143,9 @@ Classification completed in 3.452 seconds
    年齢層: 30-45
    技術レベル: 8/10
    コンテンツ洗練度: advanced
-   ユーザー層: financially literate investor or professional with interest in markets and renewable energy
+   ユーザー層: financial professionals, investors, or industry analysts
 
-⏱️  処理時間: 3.452秒
+⏱️  処理時間: 3.411秒
 
 ------------------------------------------------------------
 
@@ -163,7 +163,7 @@ Primary domain: Healthy Living (confidence: 0.310)
 Step 2: Retrieving Tier 2 categories...
 Found 8 Tier 2 categories in Healthy Living
 Step 3: LLM-based Tier 2 classification with user profiling...
-Classification completed in 3.309 seconds
+Classification completed in 2.540 seconds
 🎯 分類結果:
    ✅ Tier1ドメイン: Healthy Living
    📈 期待値: Healthy Living
@@ -177,9 +177,9 @@ Classification completed in 3.309 seconds
    年齢層: 40-60
    技術レベル: 6/10
    コンテンツ洗練度: advanced
-   ユーザー層: health-conscious middle-aged adults, possibly with an interest in preventive medicine
+   ユーザー層: health-conscious middle-aged adults, possibly caregivers or individuals interested in preventive health
 
-⏱️  処理時間: 3.309秒
+⏱️  処理時間: 2.540秒
 
 ------------------------------------------------------------
 
@@ -189,7 +189,6 @@ Classification completed in 3.309 seconds
 ✅ 日本語コンテンツ対応済み
 ✅ ハイブリッド分類稼働中
 ✅ ユーザープロファイリング機能
-✅ 本番環境対応準備完了
 
 🎉 全てのテストが成功しました！
 🎯 システムは完全に機能しています

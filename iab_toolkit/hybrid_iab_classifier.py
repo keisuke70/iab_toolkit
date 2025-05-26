@@ -302,9 +302,13 @@ Response format (JSON):
             confidence=profile_data.get('confidence', 0.5)
         )
         
+        # Sort Tier 2 categories by confidence before creating the final result
+        raw_tier2_categories = llm_result.get('tier2_categories', [])
+        sorted_tier2_categories = sorted(raw_tier2_categories, key=lambda x: x.get('confidence', 0.0), reverse=True)
+        
         result = FinalClassificationResult(
             primary_tier1_domain=tier1_domain,
-            tier2_categories=llm_result.get('tier2_categories', []),
+            tier2_categories=sorted_tier2_categories, # Use the sorted list
             user_profile=user_profile,
             processing_time=processing_time,
             method_used="hybrid_embedding_llm"

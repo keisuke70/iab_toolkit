@@ -19,17 +19,37 @@ This package provides an optimized hybrid approach for IAB Content Taxonomy v3.1
 ## Quick Start
 
 ```python
-from iab_toolkit.hybrid import HybridIABClassifier
+from iab_toolkit import HybridIABClassifier # パッケージ名から直接インポート
 
 # Initialize the classifier
 classifier = HybridIABClassifier()
 
 # Classify content
-result = classifier.classify("Your content text here")
+text_to_classify = "Your content text here. For example, a news article about technology or a blog post about fashion."
+result = classifier.classify(text_to_classify)
 
-print(f"Tier 1: {result['tier1_category']}")
-print(f"Tier 2: {result['tier2_categories']}")
-print(f"User Profile: {result['user_profile']}")
+# Accessing results
+print(f"Primary Tier 1 Domain: {result.primary_tier1_domain}")
+
+print("\\nTier 2 Categories:")
+if result.tier2_categories:
+    for cat in result.tier2_categories:
+        print(f"  - Name: {cat.get('name', 'N/A')}") # カテゴリ名
+        print(f"    Confidence: {cat.get('confidence', 0.0):.2f}") # 信頼度
+else:
+    print("  No Tier 2 categories found.")
+
+print("\\nUser Profile:")
+if result.user_profile:
+    print(f"  Age Range: {result.user_profile.age_range}") # 年齢層
+    print(f"  Geekiness Level: {result.user_profile.geekiness_level}/10") # 技術関心度
+    print(f"  Content Sophistication: {result.user_profile.content_sophistication}") # コンテンツの専門性
+    print(f"  Likely Demographics: {result.user_profile.likely_demographics}") # 推定される読者層
+else:
+    print("  No user profile generated.")
+
+print(f"\\nProcessing Time: {result.processing_time:.3f} seconds") # 処理時間
+print(f"Method Used: {result.method_used}") # 使用された分類手法
 ```
 
 ## Performance Metrics
@@ -49,6 +69,7 @@ print(f"User Profile: {result['user_profile']}")
 ## CLI Usage
 
 Test the system with Japanese samples:
+
 ```bash
 iab-hybrid
 ```

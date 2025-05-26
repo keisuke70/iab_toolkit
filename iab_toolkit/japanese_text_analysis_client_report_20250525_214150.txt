@@ -1,5 +1,5 @@
 ================================================================================
-JAPANESE TEXT ANALYSIS REPORT - GENERATED AT 2025-05-25 21:30:53
+JAPANESE TEXT ANALYSIS REPORT - GENERATED AT 2025-05-25 21:41:50
 ================================================================================
 \nThis report presents an analysis of sample Japanese texts, focusing on estimated Tier 2 content categories and user profiles.\n
 Initializing Classifier...
@@ -21,8 +21,8 @@ Loaded 5 Japanese sample texts for analysis.
 価格帯は3,000円から15,000円程度で、健康志向の高い女性や、化学成分に敏感な方々から支持されています。オンラインストアでの販売が中心で、全国どこでも購入が可能です。
 --- サンプル終了 ---\n
 >>> 推定Tier2カテゴリ:
-    1. Women's Fashion (信頼度: 80.0%)
-    2. Beauty (信頼度: 90.0%)
+    1. Beauty (信頼度: 90.0%)
+    2. Women's Fashion (信頼度: 80.0%)
 
 >>> 推定ユーザープロファイル:
     年齢層: 30-45
@@ -52,7 +52,7 @@ Loaded 5 Japanese sample texts for analysis.
     年齢層: 30-45
     ギーク度: 6/10
     コンテンツの洗練度: intermediate
-    推定される属性: middle-aged, environmentally conscious, outdoor and family-oriented consumers
+    推定される属性: middle-aged, environmentally conscious, outdoor and family-oriented individuals
 
 ----------------------------------------------------------------------\n\n
 ======================================================================
@@ -74,7 +74,7 @@ Loaded 5 Japanese sample texts for analysis.
 
 >>> 推定ユーザープロファイル:
     年齢層: 30-45
-    ギーク度: 8/10
+    ギーク度: 7/10
     コンテンツの洗練度: advanced
     推定される属性: tech-savvy professional, early adopter of new technology
 
@@ -100,7 +100,7 @@ Loaded 5 Japanese sample texts for analysis.
     年齢層: 30-45
     ギーク度: 7/10
     コンテンツの洗練度: advanced
-    推定される属性: financially literate investor or professional with interest in renewable energy and stock markets
+    推定される属性: financially literate investor or professional interested in renewable energy markets
 
 ----------------------------------------------------------------------\n\n
 ======================================================================
