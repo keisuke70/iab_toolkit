@@ -49,9 +49,7 @@ class UserProfile:
     age_range: str  # "18-25", "26-35", "36-45", "46-55", "55+"
     geekiness_level: int  # 1-10 scale (1=casual, 10=expert)
     content_sophistication: str  # "basic", "intermediate", "advanced"
-    interests: List[str]
     likely_demographics: str
-    behavioral_patterns: List[str]
     confidence: float  # 0.0-1.0
 
 @dataclass
@@ -60,7 +58,6 @@ class FinalClassificationResult:
     primary_tier1_domain: str
     tier2_categories: List[Dict[str, Any]]  # Top 2 Tier 2 categories
     user_profile: UserProfile
-    content_analysis: Dict[str, Any]
     processing_time: float
     method_used: str
 
@@ -167,8 +164,7 @@ class HybridIABClassifier:
             'Medical Health': ['health', 'medical', 'doctor', 'fitness', '健康', '医療'],
             'Business and Finance': ['business', 'finance', 'money', 'investment', 'ビジネス', '投資', '企業', '株価', '売上', '成長', '決算', '収益', 'アナリスト', '機関投資家', 'ESG'],
             'Education': ['education', 'school', 'learning', '教育', '学校'],
-            'Style & Fashion': ['fashion', 'beauty', 'makeup', 'style', 'ファッション']
-        }
+            'Style & Fashion': ['fashion', 'beauty', 'makeup', 'style', 'ファッション']        }
         
         best_domain = "Automotive"  # Default
         best_score = 0.0
@@ -201,7 +197,17 @@ class HybridIABClassifier:
         Use LLM to classify into Tier 2 categories and generate user profile.
         """
         if not REAL_API_AVAILABLE:
-            return self._mock_tier2_classification_with_profiling(text, tier1_domain, tier2_categories)
+            # Return basic fallback when API is not available
+            return {
+                "tier2_categories": [],
+                "user_profile": {
+                    "age_range": "unknown",
+                    "geekiness_level": 5,
+                    "content_sophistication": "basic",
+                    "likely_demographics": "unknown",
+                    "confidence": 0.5
+                }
+            }
         
         try:
             # Format categories for LLM
@@ -219,7 +225,7 @@ Instructions:
 1. Analyze the content and select the TOP 2 most relevant Tier 2 categories from the list above
 2. Provide confidence scores (0.0-1.0) for each category
 3. Analyze the user profile based on the content
-4. Estimate demographics, interests, and behavior patterns
+4. Estimate demographics and behavior patterns
 
 Response format (JSON):
 {{
@@ -233,18 +239,10 @@ Response format (JSON):
   ],
   "user_profile": {{
     "age_range": "30-45",
-    "interests": ["automotive", "technology"],
     "geekiness_level": 7,
     "content_sophistication": "advanced",
     "likely_demographics": "tech-savvy professional",
-    "behavioral_patterns": ["researches thoroughly", "values performance"],
     "confidence": 0.8
-  }},
-  "content_analysis": {{
-    "tone": "informational",
-    "technical_level": "intermediate",
-    "key_themes": ["theme1", "theme2"],
-    "language": "japanese/english"
   }}
 }}"""
 
@@ -268,8 +266,7 @@ Response format (JSON):
             content = response.choices[0].message.content
             if not content:
                 return {"error": "Empty response from GPT"}
-            
-            # Clean and parse JSON response
+              # Clean and parse JSON response
             clean_content = content.strip()
             if clean_content.startswith("```"):
                 lines = clean_content.split("\n")
@@ -279,70 +276,17 @@ Response format (JSON):
             
         except Exception as e:
             print(f"Error in LLM classification: {e}")
-            return self._mock_tier2_classification_with_profiling(text, tier1_domain, tier2_categories)
-    
-    def _mock_tier2_classification_with_profiling(self, text: str, tier1_domain: str, 
-                                                tier2_categories: List[Dict[str, Any]]) -> Dict[str, Any]:
-        """Mock classification for testing when API is not available."""
-        text_lower = text.lower()
-        
-        # Select top 2 categories based on simple keyword matching
-        selected_categories = []
-        
-        if tier1_domain == "Automotive":
-            # Auto-specific logic
-            if any(word in text_lower for word in ['suv', 'rav4', 'sedan', 'truck']):
-                selected_categories.append({
-                    "id": "2",
-                    "name": "Auto Body Styles",
-                    "confidence": 0.92,
-                    "reasoning": "Content discusses vehicle body types"
-                })
-            
-            if any(word in text_lower for word in ['safety', 'technology', 'hybrid']):
-                selected_categories.append({
-                    "id": "3", 
-                    "name": "Auto Technology",
-                    "confidence": 0.88,
-                    "reasoning": "Content focuses on automotive technology"
-                })
-        
-        # Fill with defaults if needed
-        while len(selected_categories) < 2 and len(tier2_categories) > len(selected_categories):
-            category = tier2_categories[len(selected_categories)]
-            selected_categories.append({
-                "id": category['unique_id'],
-                "name": category['name'],
-                "confidence": 0.75,
-                "reasoning": "Default selection based on domain"
-            })
-        
-        # User profile estimation
-        japanese_content = any(char in text for char in ['トヨタ', '車', '安全', 'ハイブリッド'])
-        tech_keywords = len([w for w in ['technology', 'hybrid', 'safety', 'system'] if w in text_lower])
-        
-        user_profile = {
-            "age_range": "30-45" if 'family' in text_lower or 'ファミリー' in text else "25-40",
-            "interests": ["automotive", "technology"] if tech_keywords > 2 else ["automotive"],
-            "geekiness_level": min(3 + tech_keywords, 8),
-            "content_sophistication": "advanced" if tech_keywords > 3 else "intermediate",
-            "likely_demographics": "tech-savvy professional" if tech_keywords > 2 else "practical consumer",
-            "behavioral_patterns": ["researches before buying", "values reliability"],
-            "confidence": 0.75
-        }
-        
-        content_analysis = {
-            "tone": "informational",
-            "technical_level": "intermediate",
-            "key_themes": ["automotive", "vehicle_features"],
-            "language": "japanese" if japanese_content else "english"
-        }
-        
-        return {
-            "tier2_categories": selected_categories,
-            "user_profile": user_profile,
-            "content_analysis": content_analysis
-        }
+            # Return basic fallback instead of mock function
+            return {
+                "tier2_categories": [],
+                "user_profile": {
+                    "age_range": "unknown",
+                    "geekiness_level": 5,
+                    "content_sophistication": "basic",
+                    "likely_demographics": "unknown",
+                    "confidence": 0.5
+                }
+            }
     
     def classify(self, text: str) -> FinalClassificationResult:
         """
@@ -373,8 +317,7 @@ Response format (JSON):
             return FinalClassificationResult(
                 primary_tier1_domain=tier1_domain,
                 tier2_categories=[],
-                user_profile=UserProfile("unknown", 5, "basic", [], "unknown", [], 0.0),
-                content_analysis={},
+                user_profile=UserProfile("unknown", 5, "basic", "unknown", 0.0),
                 processing_time=processing_time,
                 method_used="embedding_tier1_only"
             )
@@ -392,9 +335,7 @@ Response format (JSON):
             age_range=profile_data.get('age_range', 'unknown'),
             geekiness_level=profile_data.get('geekiness_level', 5),
             content_sophistication=profile_data.get('content_sophistication', 'basic'),
-            interests=profile_data.get('interests', []),
             likely_demographics=profile_data.get('likely_demographics', 'unknown'),
-            behavioral_patterns=profile_data.get('behavioral_patterns', []),
             confidence=profile_data.get('confidence', 0.5)
         )
         
@@ -402,7 +343,6 @@ Response format (JSON):
             primary_tier1_domain=tier1_domain,
             tier2_categories=llm_result.get('tier2_categories', []),
             user_profile=user_profile,
-            content_analysis=llm_result.get('content_analysis', {}),
             processing_time=processing_time,
             method_used="hybrid_embedding_llm"
         )
@@ -437,12 +377,9 @@ Response format (JSON):
                     "age_range": result.user_profile.age_range,
                     "geekiness_level": result.user_profile.geekiness_level,
                     "content_sophistication": result.user_profile.content_sophistication,
-                    "interests": result.user_profile.interests,
                     "likely_demographics": result.user_profile.likely_demographics,
-                    "behavioral_patterns": result.user_profile.behavioral_patterns,
                     "confidence": result.user_profile.confidence
                 },
-                "content_analysis": result.content_analysis,
                 "processing_time": result.processing_time,
                 "method_used": result.method_used
             }

@@ -1,10 +1,24 @@
-"""GPT helper for category classification and persona generation (updated for GPT‑4.1 mini and modern Responses API).
+"""GPT helper for category classification and persona generation (updated for GPT‑4.1 mini).
 
 Highlights
 ---------
-* Central `MODEL_NAME` constant (over‑ridable via `OPENAI_MODEL_NAME` env var) now defaults to **gpt‑4o‑mini**.
-* MODERNIZED: Uses the newer OpenAI `responses.create()` API instead of legacy `chat.completions.create()`
-* Uses `max_output_tokens`, matching the modern OpenAI Responses API parameter name.
+* Centdef classify_with_gpt(content: str, *, max_categories: int = 3) -> List[CategoryResult]:
+    client = _get_client()
+    resp = client.chat.completions.create(
+        model=MODEL_NAME,
+        messages=[
+            {"role": "system", "content": _SYSTEM_CLS},
+            {"role": "user", "content": f"Classify this content into IAB taxonomy categories:\n\n{content[:2000]}"},
+        ],
+        temperature=0.1,
+        max_completion_tokens=500,
+    )
+    content = resp.choices[0].message.content
+    if content is None:
+        logger.error("Empty response from GPT")
+        return []
+    return _parse_categories(content, max_categories)EL_NAME` constant (over‑ridable via `OPENAI_MODEL_NAME` env var) now defaults to **gpt‑4.1‑mini**.
+* Uses `max_tokens`, matching the OpenAI SDK ≥ 1.14 parameter name.
 * Shared JSON‑parsing utilities to cut repetition.
 * Compatible sync/async helpers.
 """
@@ -30,7 +44,7 @@ load_dotenv()
 logger = logging.getLogger(__name__)
 
 # You can override via env, but default to the latest small GPT family.
-MODEL_NAME: str = os.getenv("OPENAI_MODEL_NAME", "gpt-4o-mini")
+MODEL_NAME: str = os.getenv("OPENAI_MODEL_NAME", "gpt-4.1-mini")
 
 # Load taxonomy data
 _TAXONOMY_DATA: Optional[List[Dict[str, Any]]] = None
@@ -207,19 +221,13 @@ _SYSTEM_PERSONA = (
 
 def classify_with_gpt(content: str, *, max_categories: int = 3) -> List[CategoryResult]:
     client = _get_client()
-    
-    # Using the standard chat completions API
-    full_prompt = f"""{_SYSTEM_CLS}
-
-Classify this content into IAB taxonomy categories:
-
-{content[:2000]}"""
-    
     resp = client.chat.completions.create(
         model=MODEL_NAME,
-        messages=[{"role": "user", "content": full_prompt}],
-        temperature=0.1,
-        max_tokens=500,
+        messages=[
+            {"role": "system", "content": _SYSTEM_CLS},
+            {"role": "user", "content": f"Classify this content into IAB taxonomy categories:\n\n{content[:2000]}"},
+        ],
+        temperature=0.1,        max_completion_tokens=500,
     )
     response_content = resp.choices[0].message.content
     if response_content is None:
@@ -230,19 +238,13 @@ Classify this content into IAB taxonomy categories:
 
 def build_persona_tags(content: str) -> Optional[PersonaResult]:
     client = _get_client()
-    
-    # Using the standard chat completions API
-    full_prompt = f"""{_SYSTEM_PERSONA}
-
-Analyze the target persona for this content:
-
-{content[:1500]}"""
-    
     resp = client.chat.completions.create(
         model=MODEL_NAME,
-        messages=[{"role": "user", "content": full_prompt}],
+        messages=[
+            {"role": "system", "content": _SYSTEM_PERSONA},
+            {"role": "user", "content": f"Analyze the target persona for this content:\n\n{content[:1500]}"},        ],
         temperature=0.3,
-        max_tokens=300,
+        max_completion_tokens=300,
     )
     response_content = resp.choices[0].message.content
     if response_content is None:
@@ -257,19 +259,13 @@ Analyze the target persona for this content:
 
 async def classify_with_gpt_async(content: str, *, max_categories: int = 3) -> List[CategoryResult]:
     client = _get_client(async_=True)
-    
-    # Using the standard chat completions API
-    full_prompt = f"""{_SYSTEM_CLS}
-
-Classify this content into IAB taxonomy categories:
-
-{content[:2000]}"""
-    
     resp = await client.chat.completions.create(
         model=MODEL_NAME,
-        messages=[{"role": "user", "content": full_prompt}],
-        temperature=0.1,
-        max_tokens=500,
+        messages=[
+            {"role": "system", "content": _SYSTEM_CLS},
+            {"role": "user", "content": f"Classify this content into IAB taxonomy categories:\n\n{content[:2000]}"},
+        ],
+        temperature=0.1,        max_completion_tokens=500,
     )
     response_content = resp.choices[0].message.content
     if response_content is None:
@@ -280,19 +276,13 @@ Classify this content into IAB taxonomy categories:
 
 async def build_persona_tags_async(content: str) -> Optional[PersonaResult]:
     client = _get_client(async_=True)
-    
-    # Using the standard chat completions API
-    full_prompt = f"""{_SYSTEM_PERSONA}
-
-Analyze the target persona for this content:
-
-{content[:1500]}"""
-    
     resp = await client.chat.completions.create(
         model=MODEL_NAME,
-        messages=[{"role": "user", "content": full_prompt}],
+        messages=[
+            {"role": "system", "content": _SYSTEM_PERSONA},
+            {"role": "user", "content": f"Analyze the target persona for this content:\n\n{content[:1500]}"},        ],
         temperature=0.3,
-        max_tokens=300,
+        max_completion_tokens=300,
     )
     response_content = resp.choices[0].message.content
     if response_content is None:

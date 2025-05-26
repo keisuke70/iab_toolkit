@@ -33,11 +33,11 @@ dev = [
 ]
 
 [project.scripts]
-iab-hybrid = "iab_toolkit.hybrid.cli:main"
+iab-hybrid = "iab_toolkit.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["iab_toolkit*"]
 
 [tool.setuptools.package-data]
-iab_toolkit = ["hybrid/data/*"]
+iab_toolkit = ["data/*"]

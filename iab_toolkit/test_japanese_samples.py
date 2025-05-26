@@ -134,7 +134,7 @@ def test_japanese_classification():
         print(f"   年齢層: {profile.age_range}")
         print(f"   技術レベル: {profile.geekiness_level}/10")
         print(f"   コンテンツ洗練度: {profile.content_sophistication}")
-        print(f"   関心分野: {', '.join(profile.interests[:3])}" + ("..." if len(profile.interests) > 3 else ""))
+        print(f"   ユーザー層: {profile.likely_demographics}")
         print()
         
         # Performance
@@ -154,7 +154,8 @@ def test_japanese_classification():
             'user_profile': {
                 'age_range': profile.age_range,
                 'geekiness': profile.geekiness_level,
-                'sophistication': profile.content_sophistication
+                'sophistication': profile.content_sophistication,
+                'demographics': profile.likely_demographics
             }
         })
         
@@ -190,7 +191,8 @@ def test_japanese_classification():
         print(f"   処理時間: {result['processing_time']:.3f}秒")
         print(f"   ユーザー: {result['user_profile']['age_range']}, "
               f"技術Lv{result['user_profile']['geekiness']}, "
-              f"{result['user_profile']['sophistication']}")
+              f"{result['user_profile']['sophistication']}, "
+              f"{result['user_profile']['demographics']}")
         print()
     
     # System status

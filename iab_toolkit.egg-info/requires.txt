@@ -1,7 +1,0 @@
-openai>=1.3.7
-numpy
-python-dotenv
-
-[dev]
-pytest
-pytest-asyncio

@@ -162,6 +162,9 @@ def find_similar_categories(
     
     # Compute similarities
     similarities = []
+    if not index.taxonomy_data or index.taxonomy_vectors is None:
+        logger.error("Taxonomy data or vectors are not loaded.")
+        return []
     for i, category in enumerate(index.taxonomy_data):
         category_vector = normalize_vector(index.taxonomy_vectors[i])
         score = cosine_similarity(text_embedding, category_vector)
