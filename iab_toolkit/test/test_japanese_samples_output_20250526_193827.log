@@ -1,0 +1,296 @@
+================================================================================
+COMPREHENSIVE JAPANESE TEXT CLASSIFICATION TEST - LOG AT 2025-05-26 19:38:27.820592
+================================================================================
+🎯 Testing hybrid system with real Japanese content
+📊 Using .npy embeddings for tier1 + LLM for tier2
+🇯🇵 All samples are authentic Japanese text
+
+Initializing HybridIABClassifier...
+🚀 Initializing OptimizedTier1Detector for fast classification...
+Loading precomputed Tier 1 embeddings...
+Loaded 39 domain embeddings
+✅ Loaded optimized embeddings for 39 domains
+
+📄 Loaded 8 Japanese sample files
+
+🧪 Test 1: Automotive
+============================================================
+📝 説明: トヨタRAV4 SUV
+📄 ファイル: japanese_text_sample.txt
+📊 期待される分類: Automotive
+📖 テキスト概要: 2025年5月21日に世界初公開となり2025年度内発売予定とアナウンスされたトヨタ新型RAV4現段階で公開されている写真についてはすべてプロトタイプとなる写真トヨタ自動車トヨタ自動車以下トヨタを代表...
+
+=== OPTIMIZED HYBRID IAB CLASSIFICATION ===
+🚀 Using OptimizedTier1Detector for fast performance!
+Step 1: Optimized Tier 1 domain detection...
+Primary domain: Automotive (confidence: 0.240)
+Step 2: Retrieving Tier 2 categories...
+Found 16 Tier 2 categories in Automotive
+Step 3: LLM-based Tier 2 classification with user profiling...
+Classification completed in 4.426 seconds
+🎯 分類結果:
+   ✅ Tier1ドメイン: Automotive
+   📈 期待値: Automotive
+   ✓ 正確性: 正解
+
+🏷️  Tier2カテゴリ (TOP 2):
+   1. Auto Buying and Selling (60.0%)
+   2. Auto Repair (40.0%)
+
+👤 ユーザープロファイル:
+   年齢層: 30-45
+   技術レベル: 8/10
+   コンテンツ洗練度: advanced
+   ユーザー層: automotive enthusiast, potential car buyer, tech-savvy professional
+
+⏱️  処理時間: 4.426秒
+
+------------------------------------------------------------
+
+🧪 Test 2: Beauty & Cosmetics
+============================================================
+📝 説明: オーガニック化粧品ブランド
+📄 ファイル: japanese_beauty_sample.txt
+📊 期待される分類: Style & Fashion
+📖 テキスト概要: オーガニック化粧品ブランド「ナチュラルビューティー」は、敏感肌の方にも安心してお使いいただける自然由来の美容製品を提供しています。特に人気の高いスキンケアシリーズは、化学合成成分を一切使用せず、植物エ...
+
+=== OPTIMIZED HYBRID IAB CLASSIFICATION ===
+🚀 Using OptimizedTier1Detector for fast performance!
+Step 1: Optimized Tier 1 domain detection...
+Primary domain: Style & Fashion (confidence: 0.231)
+Step 2: Retrieving Tier 2 categories...
+Found 10 Tier 2 categories in Style & Fashion
+Step 3: LLM-based Tier 2 classification with user profiling...
+Classification completed in 3.438 seconds
+🎯 分類結果:
+   ✅ Tier1ドメイン: Style & Fashion
+   📈 期待値: Style & Fashion
+   ✓ 正確性: 正解
+
+🏷️  Tier2カテゴリ (TOP 2):
+   1. Women's Fashion (70.0%)
+   2. Children's Clothing (20.0%)
+
+👤 ユーザープロファイル:
+   年齢層: 30-45
+   技術レベル: 6/10
+   コンテンツ洗練度: advanced
+   ユーザー層: health-conscious, environmentally aware women, possibly with higher education
+
+⏱️  処理時間: 3.438秒
+
+------------------------------------------------------------
+
+🧪 Test 3: Technology
+============================================================
+📝 説明: iPhone 15 Pro技術
+📄 ファイル: japanese_technology_sample.txt
+📊 期待される分類: Technology & Computing
+📖 テキスト概要: 最新のiPhone 15 Proは、Appleが開発した革新的なスマートフォンです。A17 Proチップを搭載し、従来モデルと比較して処理性能が大幅に向上しています。特に機械学習とAI処理において、そ...
+
+=== OPTIMIZED HYBRID IAB CLASSIFICATION ===
+🚀 Using OptimizedTier1Detector for fast performance!
+Step 1: Optimized Tier 1 domain detection...
+Primary domain: Technology & Computing (confidence: 0.223)
+Step 2: Retrieving Tier 2 categories...
+Found 6 Tier 2 categories in Technology & Computing
+Step 3: LLM-based Tier 2 classification with user profiling...
+Classification completed in 3.023 seconds
+🎯 分類結果:
+   ✅ Tier1ドメイン: Technology & Computing
+   📈 期待値: Technology & Computing
+   ✓ 正確性: 正解
+
+🏷️  Tier2カテゴリ (TOP 2):
+   1. Consumer Electronics (95.0%)
+   2. Artificial Intelligence (90.0%)
+
+👤 ユーザープロファイル:
+   年齢層: 30-45
+   技術レベル: 8/10
+   コンテンツ洗練度: advanced
+   ユーザー層: tech-savvy professional, early adopter of new technology
+
+⏱️  処理時間: 3.023秒
+
+------------------------------------------------------------
+
+🧪 Test 4: Business & Finance
+============================================================
+📝 説明: 東京証券取引所企業
+📄 ファイル: japanese_business_sample.txt
+📊 期待される分類: Business and Finance
+📖 テキスト概要: 東京証券取引所に上場している新興企業「グリーンテック・ソリューションズ」は、再生可能エネルギー分野で急成長を遂げています。2024年の第3四半期決算では、前年同期比150％の売上成長を記録し、投資家か...
+
+=== OPTIMIZED HYBRID IAB CLASSIFICATION ===
+🚀 Using OptimizedTier1Detector for fast performance!
+Step 1: Optimized Tier 1 domain detection...
+Primary domain: Business and Finance (confidence: 0.208)
+Step 2: Retrieving Tier 2 categories...
+Found 3 Tier 2 categories in Business and Finance
+Step 3: LLM-based Tier 2 classification with user profiling...
+Classification completed in 3.488 seconds
+🎯 分類結果:
+   ✅ Tier1ドメイン: Business and Finance
+   📈 期待値: Business and Finance
+   ✓ 正確性: 正解
+
+🏷️  Tier2カテゴリ (TOP 2):
+   1. Economy (90.0%)
+   2. Industries (85.0%)
+
+👤 ユーザープロファイル:
+   年齢層: 30-45
+   技術レベル: 7/10
+   コンテンツ洗練度: advanced
+   ユーザー層: financially literate investor or professional with interest in renewable energy and stock markets
+
+⏱️  処理時間: 3.488秒
+
+------------------------------------------------------------
+
+🧪 Test 5: Health & Wellness
+============================================================
+📝 説明: 東京大学医学部研究
+📄 ファイル: japanese_health_sample.txt
+📊 期待される分類: Healthy Living
+📖 テキスト概要: 東京大学医学部が発表した最新の研究によると、定期的な運動習慣が認知症予防に重要な役割を果たすことが科学的に証明されました。週3回以上の有酸素運動を継続することで、アルツハイマー型認知症のリスクを約40...
+
+=== OPTIMIZED HYBRID IAB CLASSIFICATION ===
+🚀 Using OptimizedTier1Detector for fast performance!
+Step 1: Optimized Tier 1 domain detection...
+Primary domain: Healthy Living (confidence: 0.310)
+Step 2: Retrieving Tier 2 categories...
+Found 8 Tier 2 categories in Healthy Living
+Step 3: LLM-based Tier 2 classification with user profiling...
+Classification completed in 3.886 seconds
+🎯 分類結果:
+   ✅ Tier1ドメイン: Healthy Living
+   📈 期待値: Healthy Living
+   ✓ 正確性: 正解
+
+🏷️  Tier2カテゴリ (TOP 2):
+   1. Nutrition (80.0%)
+   2. Weight Loss (40.0%)
+
+👤 ユーザープロファイル:
+   年齢層: 40-60
+   技術レベル: 6/10
+   コンテンツ洗練度: advanced
+   ユーザー層: health-conscious middle-aged adults, possibly with an interest in preventive medicine
+
+⏱️  処理時間: 3.886秒
+
+------------------------------------------------------------
+
+🧪 Test 6: Careers & Employment
+============================================================
+📝 説明: キャリアアップセミナー情報
+📄 ファイル: japanese_careers_sample.txt
+📊 期待される分類: Careers
+📖 テキスト概要: 新しいキャリアアップセミナーが開催されます。このセミナーでは、最新の業界動向、効果的な履歴書の書き方、面接対策について専門家が解説します。特に、デジタル分野でのキャリアチェンジを目指す方々にとって有益...
+
+=== OPTIMIZED HYBRID IAB CLASSIFICATION ===
+🚀 Using OptimizedTier1Detector for fast performance!
+Step 1: Optimized Tier 1 domain detection...
+Primary domain: Careers (confidence: 0.340)
+Step 2: Retrieving Tier 2 categories...
+Found 6 Tier 2 categories in Careers
+Step 3: LLM-based Tier 2 classification with user profiling...
+Classification completed in 3.278 seconds
+🎯 分類結果:
+   ✅ Tier1ドメイン: Careers
+   📈 期待値: Careers
+   ✓ 正確性: 正解
+
+🏷️  Tier2カテゴリ (TOP 2):
+   1. Career Advice (90.0%)
+   2. Career Planning (80.0%)
+
+👤 ユーザープロファイル:
+   年齢層: 30-45
+   技術レベル: 6/10
+   コンテンツ洗練度: intermediate
+   ユーザー層: professional individual seeking career advancement or change
+
+⏱️  処理時間: 3.278秒
+
+------------------------------------------------------------
+
+🧪 Test 7: Education
+============================================================
+📝 説明: オンライン学習プラットフォーム
+📄 ファイル: japanese_education_sample.txt
+📊 期待される分類: Education
+📖 テキスト概要: 新しいオンライン学習プラットフォーム「学びの未来」が発表されました。このプラットフォームでは、国内外の有名大学の講義を自宅で受講でき、AIを活用した個別指導も提供されます。特に注目されているのは、実践...
+
+=== OPTIMIZED HYBRID IAB CLASSIFICATION ===
+🚀 Using OptimizedTier1Detector for fast performance!
+Step 1: Optimized Tier 1 domain detection...
+Primary domain: Education (confidence: 0.284)
+Step 2: Retrieving Tier 2 categories...
+Found 12 Tier 2 categories in Education
+Step 3: LLM-based Tier 2 classification with user profiling...
+Classification completed in 4.299 seconds
+🎯 分類結果:
+   ✅ Tier1ドメイン: Education
+   📈 期待値: Education
+   ✓ 正確性: 正解
+
+🏷️  Tier2カテゴリ (TOP 2):
+   1. Online Education (95.0%)
+   2. College Education (80.0%)
+
+👤 ユーザープロファイル:
+   年齢層: 30-45
+   技術レベル: 7/10
+   コンテンツ洗練度: advanced
+   ユーザー層: tech-savvy professional
+
+⏱️  処理時間: 4.299秒
+
+------------------------------------------------------------
+
+🧪 Test 8: Food & Drink
+============================================================
+📝 説明: 東京レストラン春の特別コース
+📄 ファイル: japanese_food_drink_sample.txt
+📊 期待される分類: Food & Drink
+📖 テキスト概要: 東京中心部に新しくオープンしたレストラン「旬彩亭」では、春の味覚をふんだんに使った特別コースが始まりました。シェフ厳選の新鮮な山菜や魚介類を使用し、素材本来の味を引き立てる調理法で提供されます。特に、...
+
+=== OPTIMIZED HYBRID IAB CLASSIFICATION ===
+🚀 Using OptimizedTier1Detector for fast performance!
+Step 1: Optimized Tier 1 domain detection...
+Primary domain: Food & Drink (confidence: 0.236)
+Step 2: Retrieving Tier 2 categories...
+Found 12 Tier 2 categories in Food & Drink
+Step 3: LLM-based Tier 2 classification with user profiling...
+Classification completed in 3.179 seconds
+🎯 分類結果:
+   ✅ Tier1ドメイン: Food & Drink
+   📈 期待値: Food & Drink
+   ✓ 正確性: 正解
+
+🏷️  Tier2カテゴリ (TOP 2):
+   1. Dining Out (90.0%)
+   2. Cooking (75.0%)
+
+👤 ユーザープロファイル:
+   年齢層: 30-45
+   技術レベル: 6/10
+   コンテンツ洗練度: intermediate
+   ユーザー層: food enthusiast, possibly with an interest in Japanese cuisine and seasonal ingredients
+
+⏱️  処理時間: 3.179秒
+
+------------------------------------------------------------
+
+🚀 システムステータス:
+================================================================================
+✅ .npy埋め込みファイル使用中
+✅ 日本語コンテンツ対応済み
+✅ ハイブリッド分類稼働中
+✅ ユーザープロファイリング機能
+
+🎉 全てのテストが成功しました！
+🎯 システムは完全に機能しています

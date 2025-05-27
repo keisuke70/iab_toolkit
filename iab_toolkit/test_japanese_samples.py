@@ -17,15 +17,15 @@ def load_japanese_samples():
     
     samples = {}
     sample_files = {
-        "japanese_beauty_sample.txt": {
-            "name": "Beauty & Cosmetics",
-            "expected_tier1": "Style & Fashion",
-            "description": "オーガニック化粧品ブランド"
-        },
         "japanese_text_sample.txt": {
             "name": "Automotive",
             "expected_tier1": "Automotive", 
             "description": "トヨタRAV4 SUV"
+        },
+        "japanese_beauty_sample.txt": {
+            "name": "Beauty & Cosmetics",
+            "expected_tier1": "Style & Fashion",
+            "description": "オーガニック化粧品ブランド"
         },
         "japanese_technology_sample.txt": {
             "name": "Technology",
@@ -41,6 +41,20 @@ def load_japanese_samples():
             "name": "Health & Wellness",
             "expected_tier1": "Healthy Living",
             "description": "東京大学医学部研究"
+        },          "japanese_careers_sample.txt": {
+            "name": "Careers & Employment",
+            "expected_tier1": "Careers",
+            "description": "キャリアアップセミナー情報"
+        },
+        "japanese_education_sample.txt": {
+            "name": "Education",
+            "expected_tier1": "Education",
+            "description": "オンライン学習プラットフォーム"
+        },
+        "japanese_food_drink_sample.txt": {
+            "name": "Food & Drink",
+            "expected_tier1": "Food & Drink",
+            "description": "東京レストラン春の特別コース"
         }
     }
     
@@ -66,8 +80,10 @@ def test_japanese_classification():
     original_stdout = sys.stdout
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     log_file_name = f"test_japanese_samples_output_{timestamp}.log"
-    # Assuming Path(__file__).parent is 'c:\\Users\\Ykeisuke\\Documents\\iab_toolkit\\iab_toolkit\\'
-    log_file_path = Path(__file__).parent / log_file_name
+    # Save log in the test folder
+    test_folder = Path(__file__).parent / "test"
+    test_folder.mkdir(exist_ok=True)  # Ensure test folder exists
+    log_file_path = test_folder / log_file_name
     
     # Print to console before redirection
     print(f"Redirecting test output to: {log_file_path}")

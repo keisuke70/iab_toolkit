@@ -5,14 +5,51 @@
 ## 特徴
 
 - **事前計算済み埋め込み**: `.npy`ファイルを使用し、即座に類似度計算を実行
-- **日本語コンテンツサポート**: 実際の日本語テキストサンプルで完全にテスト済み
+- **日本語コンテンツサポート**: 実際の日本語テキストサンプル（8種類：自動車、美容、技術、ビジネス、健康、キャリア、教育、食品・飲料）で完全にテスト済み
 - **包括的なユーザープロファイリング**: 年齢層、ギーク度、コンテンツの洗練度
+- **高速処理**: 最適化により従来比2.2倍の高速化を実現
+- **包括的CLI**: テキスト分類、ファイル処理、テストスイート実行に対応
 
 ## アーキテクチャ
 
 1.  **最適化された Tier 1 検出**: 事前計算された埋め込みとコサイン類似度を使用
 2.  **LLM ベースの Tier 2 分類**: 正確なカテゴリ分類のための絞り込まれたタクソノミーサブセット
 3.  **ユーザープロファイル分析**: 人口統計学的および行動パターンの推定
+
+## 前提条件とセットアップ
+
+### OpenAI API キーの設定
+
+このシステムは OpenAI API を使用するため、事前に API キーの設定が必要です。
+
+1. **OpenAI API キーの取得**:
+   - [OpenAI Platform](https://platform.openai.com/) にアクセス
+   - アカウントを作成またはログイン
+   - API Keys セクションで新しい API キーを生成
+
+2. **環境変数の設定**:
+   ```bash
+   # Windows (PowerShell)
+   $env:OPENAI_API_KEY="your-api-key-here"
+   
+   # または .env ファイルを作成
+   echo "OPENAI_API_KEY=your-api-key-here" > .env
+   ```
+
+3. **必要な依存関係**:
+   - Python 3.10以上
+   - OpenAI API キー
+   - インターネット接続（API呼び出し用）
+
+### インストール
+
+```bash
+# パッケージのインストール
+pip install -e .
+
+# または wheel ファイルから
+pip install path/to/iab_toolkit-0.3.0-py3-none-any.whl
+```
 
 ## クイックスタート
 
@@ -55,7 +92,7 @@ print(f"使用された手法: {result.method_used}") # 使用された分類手
 - **処理時間**: 分類あたり約 450ms（従来は約 1000ms）
 - **API 効率**: 分類あたり埋め込み呼び出し 1 回 + LLM 呼び出し 1 回
 - **精度**: Tier 1 検出 100%、総合精度 80%
-- **日本語サポート**: 5 種類のサンプルタイプで完全に検証済み
+- **日本語サポート**: 8種類のサンプルタイプで完全に検証済み（自動車、美容、技術、ビジネス、健康、キャリア、教育、食品・飲料）
 
 ## ファイル構成と説明
 
@@ -86,7 +123,7 @@ print(f"使用された手法: {result.method_used}") # 使用された分類手
 
 `iab-hybrid` コマンドを使用して、ターミナルから直接コンテンツ分類システムを利用できます。
 
-**基本的な使い方:**
+### 基本的な使い方
 
 ```bash
 # 直接テキストを指定して分類
@@ -95,23 +132,87 @@ iab-hybrid "ここに分類したいテキストを入力します。"
 # ファイルを指定して分類
 iab-hybrid --file path/to/your/content.txt
 
-# 日本語サンプルテストを実行 (結果はログファイルに出力されます)
-iab-hybrid --test
+# 日本語サンプルファイルを分類する例
+iab-hybrid --file iab_toolkit/data/japanese_automotive_sample.txt
 
-# 結果をJSON形式で出力
-iab-hybrid "テキスト" --json
+# JSON形式で結果を出力
+iab-hybrid --json "テキスト内容"
 
-# 詳細なログを出力 (冗長モード)
-iab-hybrid "テキスト" -v
+# 詳細なログを出力（冗長モード）
+iab-hybrid --verbose "テキスト内容"
 ```
 
-**オプション:**
+### テストスイート実行
 
-- `text` (引数): 分類対象のテキストコンテンツ。`--file` や `--test` を使用する場合は省略可能です。
-- `--file, -f FILE_PATH`: 分類対象のテキストファイルへのパス。
-- `--test`: 日本語サンプルテキストを使用したテストスイートを実行します。
-- `--json`: 結果を JSON 形式で標準出力します。
-- `--verbose, -v`: 詳細なログ（スタックトレースなど）を含む冗長モードを有効にします。
+```bash
+# 技術者向け詳細テスト（ログファイルに出力）
+# 全8種類の日本語サンプルをテストし、詳細な技術情報をtest/フォルダにログファイルとして記録
+iab-hybrid --test
+
+# クライアント向けレポート生成
+# 全8種類の日本語サンプルを分析し、ビジネス向けの読みやすいレポートをtest/フォルダに生成
+iab-hybrid --client-report
+```
+
+**テスト出力の保存場所:**
+- 技術テストログ: `iab_toolkit/test/test_japanese_samples_output_[timestamp].log`
+- クライアントレポート: `iab_toolkit/test/japanese_text_analysis_client_report_[timestamp].txt`
+
+### コマンドオプション
+
+| オプション | 短縮形 | 説明 |
+|-----------|--------|------|
+| `--file` | `-f` | 分類対象のテキストファイルへのパス |
+| `--test` | - | 技術者向け詳細テスト：全8種類の日本語サンプルをテストし、技術的な結果をログファイルに出力 |
+| `--client-report` | - | クライアント向けレポート：全8種類の日本語サンプルを分析し、ビジネス向けの読みやすいレポートを生成 |
+| `--json` | - | 結果をJSON形式で出力（プログラム処理用） |
+| `--verbose` | `-v` | 詳細ログ出力を有効化（デバッグ用） |
+
+### 出力例
+
+**標準出力:**
+```
+============================================================
+IAB HYBRID CLASSIFICATION RESULTS
+============================================================
+📖 Text Preview: This is a sample text about automotive...
+📏 Text Length: 93 characters
+🎯 Primary Domain: Automotive
+🏷️ Top Tier 2 Categories:
+   1. Auto Technology (95.0%)
+   2. Auto Type (80.0%)
+👤 User Profile:
+   Age Range: 30-45
+   Tech Level: 7/10
+   Sophistication: advanced
+   Demographics: tech-savvy professional
+⏱️ Processing Time: 4.179 seconds
+============================================================
+```
+
+**JSON出力:**
+```json
+{
+  "primary_tier1_domain": "Automotive",
+  "tier2_categories": [
+    {
+      "id": "37",
+      "name": "Auto Technology",
+      "confidence": 0.95,
+      "reasoning": "技術関連のコンテンツ分析結果"
+    }
+  ],
+  "user_profile": {
+    "age_range": "30-45",
+    "geekiness_level": 8,
+    "content_sophistication": "advanced",
+    "likely_demographics": "tech-savvy professional",
+    "confidence": 0.8
+  },
+  "processing_time": 3.487,
+  "method_used": "hybrid_embedding_llm"
+}
+```
 
 ## Wheel ビルドとローカルインストール
 

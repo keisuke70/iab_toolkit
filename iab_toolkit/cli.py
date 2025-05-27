@@ -18,14 +18,15 @@ def main():
 Examples:
   iab-hybrid "Your text content here"
   iab-hybrid --file content.txt
-  iab-hybrid --test  # Run Japanese sample tests
+  iab-hybrid --test  # Run Japanese sample tests (technical output)
+  iab-hybrid --client-report  # Generate client-facing report
         """
     )
     
     parser.add_argument(
         "text", 
         nargs='?', 
-        help="Text content to classify (optional if using --file or --test)"
+        help="Text content to classify (optional if using --file, --test, or --client-report)"
     )
     parser.add_argument(
         "--file", "-f",
@@ -34,7 +35,12 @@ Examples:
     parser.add_argument(
         "--test",
         action="store_true",
-        help="Run the Japanese sample test suite"
+        help="Run the Japanese sample test suite (technical output)"
+    )
+    parser.add_argument(
+        "--client-report",
+        action="store_true",
+        help="Generate a client-facing report for Japanese samples"
     )
     parser.add_argument(
         "--json",
@@ -53,6 +59,11 @@ Examples:
     if args.test:
         from .test_japanese_samples import main as test_main
         return test_main()
+    
+    # Handle client report mode
+    if args.client_report:
+        from .test_japanese_samples_client_report import main as client_main
+        return client_main()
     
     # Get text content
     text_content = None
@@ -138,10 +149,7 @@ def print_readable_results(result, text_content):
         print(f"   Age Range: {profile.age_range}")
         print(f"   Tech Level: {profile.geekiness_level}/10")
         print(f"   Sophistication: {profile.content_sophistication}")
-        
-        if profile.interests:
-            interests = ', '.join(profile.interests)
-            print(f"   Interests: {interests}")
+        print(f"   Demographics: {profile.likely_demographics}")
     
     # Processing info
     if result.processing_time:

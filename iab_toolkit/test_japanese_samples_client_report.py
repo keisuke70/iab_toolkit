@@ -17,14 +17,14 @@ def load_japanese_samples():
     
     samples = {}
     sample_files = {
+        "japanese_text_sample.txt": {
+            "name": "Given Automotive",
+            "description": "トヨタRAV4 SUV"
+        },
         "japanese_beauty_sample.txt": {
             "name": "Beauty & Cosmetics",
             "description": "オーガニック化粧品ブランド"
             # Expected tier1 removed as it's not for client report
-        },
-        "japanese_text_sample.txt": {
-            "name": "Automotive",
-            "description": "トヨタRAV4 SUV"
         },
         "japanese_technology_sample.txt": {
             "name": "Technology",
@@ -37,6 +37,18 @@ def load_japanese_samples():
         "japanese_health_sample.txt": {
             "name": "Health & Wellness",
             "description": "東京大学医学部研究"
+        },
+        "japanese_careers_sample.txt": {
+            "name": "Careers & Employment",
+            "description": "キャリアアップセミナー情報"
+        },
+        "japanese_education_sample.txt": {
+            "name": "Education & Learning",
+            "description": "オンライン学習プラットフォーム"
+        },
+        "japanese_food_drink_sample.txt": {
+            "name": "Food & Drink",
+            "description": "東京レストラン春の特別コース"
         }
     }
     
@@ -62,8 +74,10 @@ def generate_client_report():
     original_stdout = sys.stdout
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     report_file_name = f"japanese_text_analysis_client_report_{timestamp}.txt"
-    # Assuming Path(__file__).parent is correct
-    report_file_path = Path(__file__).resolve().parent / report_file_name
+    # Save report in the test folder
+    test_folder = Path(__file__).resolve().parent / "test"
+    test_folder.mkdir(exist_ok=True)  # Ensure test folder exists
+    report_file_path = test_folder / report_file_name
 
     # Print to console before redirection
     print(f"Generating client report. Output will be saved to: {report_file_path}")
