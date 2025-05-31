@@ -5,10 +5,10 @@
 ## 特徴
 
 - **事前計算済み埋め込み**: `.npy`ファイルを使用し、即座に類似度計算を実行
-- **日本語コンテンツサポート**: 実際の日本語テキストサンプル（8種類：自動車、美容、技術、ビジネス、健康、キャリア、教育、食品・飲料）で完全にテスト済み
-- **包括的なユーザープロファイリング**: 年齢層、ギーク度、コンテンツの洗練度
-- **高速処理**: 最適化により従来比2.2倍の高速化を実現
-- **包括的CLI**: テキスト分類、ファイル処理、テストスイート実行に対応
+- **日本語コンテンツサポート**: 実際の日本語テキストサンプル（8 種類：自動車、美容、技術、ビジネス、健康、キャリア、教育、食品・飲料）で完全にテスト済み
+- **包括的なユーザープロファイリング**: 年齢層、性別、ギーク度、メディア品質
+- **高速処理**: 最適化により従来比 2.2 倍の高速化を実現
+- **包括的 CLI**: テキスト分類、ファイル処理、テストスイート実行に対応
 
 ## アーキテクチャ
 
@@ -23,23 +23,27 @@
 このシステムは OpenAI API を使用するため、事前に API キーの設定が必要です。
 
 1. **OpenAI API キーの取得**:
+
    - [OpenAI Platform](https://platform.openai.com/) にアクセス
    - アカウントを作成またはログイン
    - API Keys セクションで新しい API キーを生成
 
 2. **環境変数の設定**:
+
    ```bash
    # Windows (PowerShell)
-   $env:OPENAI_API_KEY="your-api-key-here"
-   
-   # または .env ファイルを作成
+   $Env:OPENAI_API_KEY="your-api-key-here"
+
+   # または .env ファイルを作成 (python-dotenv が必要)
    echo "OPENAI_API_KEY=your-api-key-here" > .env
    ```
 
+   **重要:** `.env` ファイルを使用する場合、プロジェクトの依存関係に `python-dotenv` が含まれていることを確認してください。含まれていない場合は、`pip install python-dotenv` でインストールし、コード内で `load_dotenv()` を呼び出す必要があります。本パッケージでは `python-dotenv` が依存関係に含まれており、`iab_toolkit._config` モジュールで自動的に `.env` ファイルが読み込まれるようになっています。
+
 3. **必要な依存関係**:
-   - Python 3.10以上
+   - Python 3.10 以上
    - OpenAI API キー
-   - インターネット接続（API呼び出し用）
+   - インターネット接続（API 呼び出し用）
 
 ### インストール
 
@@ -70,6 +74,7 @@ print("\nTier 2カテゴリ:")
 if result.tier2_categories:
     for cat in result.tier2_categories:
         print(f"  - 名前: {cat.get('name', 'N/A')}") # カテゴリ名
+        print(f"    IAB番号: {cat.get('id', 'N/A')}") # IAB番号
         print(f"    信頼度: {cat.get('confidence', 0.0):.2f}") # 信頼度
 else:
     print("  Tier 2カテゴリは見つかりませんでした。")
@@ -77,8 +82,9 @@ else:
 print("\nユーザープロファイル:")
 if result.user_profile:
     print(f"  年齢層: {result.user_profile.age_range}") # 年齢層
-    print(f"  ギークレベル: {result.user_profile.geekiness_level}/10") # 技術関心度
-    print(f"  コンテンツの洗練度: {result.user_profile.content_sophistication}") # コンテンツの専門性
+    print(f"  性別: {result.user_profile.gender}") # 性別
+    print(f"  ギークレベル: {result.user_profile.geek_level}/10") # 技術関心度
+    print(f"  メディア品質: {result.user_profile.media_quality}") # メディアの質
     print(f"  推定される読者層: {result.user_profile.likely_demographics}") # 推定される読者層
 else:
     print("  ユーザープロファイルは生成されませんでした。")
@@ -92,7 +98,7 @@ print(f"使用された手法: {result.method_used}") # 使用された分類手
 - **処理時間**: 分類あたり約 450ms（従来は約 1000ms）
 - **API 効率**: 分類あたり埋め込み呼び出し 1 回 + LLM 呼び出し 1 回
 - **精度**: Tier 1 検出 100%、総合精度 80%
-- **日本語サポート**: 8種類のサンプルタイプで完全に検証済み（自動車、美容、技術、ビジネス、健康、キャリア、教育、食品・飲料）
+- **日本語サポート**: 8 種類のサンプルタイプで完全に検証済み（自動車、美容、技術、ビジネス、健康、キャリア、教育、食品・飲料）
 
 ## ファイル構成と説明
 
@@ -157,22 +163,24 @@ iab-hybrid --client-report
 ```
 
 **テスト出力の保存場所:**
+
 - 技術テストログ: `iab_toolkit/test/test_japanese_samples_output_[timestamp].log`
 - クライアントレポート: `iab_toolkit/test/japanese_text_analysis_client_report_[timestamp].txt`
 
 ### コマンドオプション
 
-| オプション | 短縮形 | 説明 |
-|-----------|--------|------|
-| `--file` | `-f` | 分類対象のテキストファイルへのパス |
-| `--test` | - | 技術者向け詳細テスト：全8種類の日本語サンプルをテストし、技術的な結果を`test/`フォルダにログファイルとして出力 |
-| `--client-report` | - | クライアント向けレポート：全8種類の日本語サンプルを分析し、ビジネス向けの読みやすいレポートを`test/`フォルダに生成 |
-| `--json` | - | 結果をJSON形式で出力（プログラム処理用） |
-| `--verbose` | `-v` | 詳細ログ出力を有効化（デバッグ用） |
+| オプション        | 短縮形 | 説明                                                                                                                 |
+| ----------------- | ------ | -------------------------------------------------------------------------------------------------------------------- |
+| `--file`          | `-f`   | 分類対象のテキストファイルへのパス                                                                                   |
+| `--test`          | -      | 技術者向け詳細テスト：全 8 種類の日本語サンプルをテストし、技術的な結果を`test/`フォルダにログファイルとして出力     |
+| `--client-report` | -      | クライアント向けレポート：全 8 種類の日本語サンプルを分析し、ビジネス向けの読みやすいレポートを`test/`フォルダに生成 |
+| `--json`          | -      | 結果を JSON 形式で出力（プログラム処理用）                                                                           |
+| `--verbose`       | `-v`   | 詳細ログ出力を有効化（デバッグ用）                                                                                   |
 
 ### 出力例
 
 **標準出力:**
+
 ```
 ============================================================
 IAB HYBRID CLASSIFICATION RESULTS
@@ -181,18 +189,20 @@ IAB HYBRID CLASSIFICATION RESULTS
 📏 Text Length: 93 characters
 🎯 Primary Domain: Automotive
 🏷️ Top Tier 2 Categories:
-   1. Auto Technology (95.0%)
-   2. Auto Type (80.0%)
+   1. Auto Technology (IAB: 37) (95.0%)
+   2. Auto Type (IAB: 38) (80.0%)
 👤 User Profile:
    Age Range: 30-45
-   Tech Level: 7/10
-   Sophistication: advanced
+   Gender: neutral
+   Geek Level: 7/10
+   Media Quality: advanced
    Demographics: tech-savvy professional
 ⏱️ Processing Time: 4.179 seconds
 ============================================================
 ```
 
-**JSON出力:**
+**JSON 出力:**
+
 ```json
 {
   "primary_tier1_domain": "Automotive",
@@ -206,8 +216,9 @@ IAB HYBRID CLASSIFICATION RESULTS
   ],
   "user_profile": {
     "age_range": "30-45",
-    "geekiness_level": 8,
-    "content_sophistication": "advanced",
+    "gender": "neutral",
+    "geek_level": 8,
+    "media_quality": "advanced",
     "likely_demographics": "tech-savvy professional",
     "confidence": 0.8
   },

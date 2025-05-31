@@ -1,5 +1,5 @@
 ================================================================================
-JAPANESE TEXT ANALYSIS REPORT - GENERATED AT 2025-05-26 19:39:22
+JAPANESE TEXT ANALYSIS REPORT - GENERATED AT 2025-05-31 03:36:05
 ================================================================================
 \nThis report presents an analysis of sample Japanese texts, focusing on estimated Tier 2 content categories and user profiles.\n
 Initializing Classifier...
@@ -15,14 +15,15 @@ Loaded 8 Japanese sample texts for analysis.
 2025年5月21日に世界初公開となり2025年度内発売予定とアナウンスされたトヨタ新型RAV4現段階で公開されている写真についてはすべてプロトタイプとなる写真トヨタ自動車トヨタ自動車以下トヨタを代表するSUVRAV4の第6世代が公開された5代目までのRAV4は世界180の国と地域で販売され累計で1500万台が送り出された大人気モデルだ1994年5月に初代が登場したころの日本市場はステーションワゴンが大いに支持されミニバンがそのあとを追う形またクロスカントリー4WDモデルが徐々に高級乗用志向になりはじめたころでSUVは爆発的人気の前夜だったそれから31年が経ちSUVは世界中の自動車メーカーにとってなくてはならない存在にまで成長したポルシェにいたっては販売の半数以上がSUVモデルだ写真2025年度中発売予定トヨタ新型RAV4の内外装102枚新型RAV4で押さえるべき3つのポイント新型RAV4で注目すべきは3点ある1つ目が車両そのものの進化2つ目がバリエーションの増加3つ目がSDVとしての昇華だまずは1つ目車両の進化真っ先に目を引くのがシャープな外観デザイン2021年12月14日トヨタはバッテリーEV戦略に関する説明会で豊田章男社長現会長は私たちの未来のショールームへようこそと声高らかに16台の車両を紹介した当時は未来のBEVとして公開された車両群だがそのデザインエッセンスはその後のクラウンランドクルーザープリウスそしてRAV4に受け継がれパワートレーンの枠組みを超えた新世代トヨタのデザインとして市販化された
 --- サンプル終了 ---\n
 >>> 推定Tier2カテゴリ:
-    1. Auto Buying and Selling (信頼度: 60.0%)
-    2. Auto Repair (信頼度: 40.0%)
+    1. Auto Buying and Selling (ID: 30, 信頼度: 60.0%)
+    2. Auto Repair (ID: 34, 信頼度: 40.0%)
 
 >>> 推定ユーザープロファイル:
     年齢層: 30-45
-    ギーク度: 7/10
-    コンテンツの洗練度: advanced
-    推定される属性: tech-savvy professional, automotive enthusiast, potential car buyer
+    性別: neutral
+    ギークレベル: 7/10
+    メディア品質: advanced
+    推定される属性: tech-savvy professional
 
 ----------------------------------------------------------------------\n\n
 ======================================================================
@@ -39,14 +40,15 @@ Loaded 8 Japanese sample texts for analysis.
 価格帯は3,000円から15,000円程度で、健康志向の高い女性や、化学成分に敏感な方々から支持されています。オンラインストアでの販売が中心で、全国どこでも購入が可能です。
 --- サンプル終了 ---\n
 >>> 推定Tier2カテゴリ:
-    1. Beauty (信頼度: 90.0%)
-    2. Women's Fashion (信頼度: 80.0%)
+    1. Beauty (ID: 553, 信頼度: 90.0%)
+    2. Women's Fashion (ID: 560, 信頼度: 80.0%)
 
 >>> 推定ユーザープロファイル:
     年齢層: 30-45
-    ギーク度: 6/10
-    コンテンツの洗練度: intermediate
-    推定される属性: health-conscious, environmentally aware women, possibly professionals or homemakers interested in natural beauty products
+    性別: female
+    ギークレベル: 4/10
+    メディア品質: intermediate
+    推定される属性: health-conscious, environmentally aware women interested in natural beauty products
 
 ----------------------------------------------------------------------\n\n
 ======================================================================
@@ -63,14 +65,15 @@ Loaded 8 Japanese sample texts for analysis.
 価格は約15万円から20万円程度で、最新技術に敏感なユーザーや、高性能なモバイルデバイスを求めるプロフェッショナルユーザーに人気があります。バッテリー性能も改善され、一日中安心して使用できます。
 --- サンプル終了 ---\n
 >>> 推定Tier2カテゴリ:
-    1. Computing (信頼度: 90.0%)
-    2. Consumer Electronics (信頼度: 85.0%)
+    1. Computing (ID: 599, 信頼度: 90.0%)
+    2. Consumer Electronics (ID: 632, 信頼度: 85.0%)
 
 >>> 推定ユーザープロファイル:
     年齢層: 30-45
-    ギーク度: 8/10
-    コンテンツの洗練度: advanced
-    推定される属性: tech-savvy professional, early adopter of new technology
+    性別: neutral
+    ギークレベル: 8/10
+    メディア品質: high
+    推定される属性: tech enthusiast, early adopter, professional user
 
 ----------------------------------------------------------------------\n\n
 ======================================================================
@@ -86,15 +89,14 @@ Loaded 8 Japanese sample texts for analysis.
 
 投資リスクとしては、政府の補助金政策の変更や国際市場での競争激化が挙げられますが、長期的な成長ポテンシャルは非常に高いと評価されています。個人投資家にとっても魅力的な投資機会となっています。
 --- サンプル終了 ---\n
->>> 推定Tier2カテゴリ:
-    1. Economy (信頼度: 90.0%)
-    2. Industries (信頼度: 85.0%)
+>>> 推定Tier2カテゴリ: なし
 
 >>> 推定ユーザープロファイル:
-    年齢層: 30-45
-    ギーク度: 7/10
-    コンテンツの洗練度: advanced
-    推定される属性: investment professionals, finance enthusiasts, environmentally conscious investors
+    年齢層: unknown
+    性別: neutral
+    ギークレベル: 5/10
+    メディア品質: basic
+    推定される属性: unknown
 
 ----------------------------------------------------------------------\n\n
 ======================================================================
@@ -111,14 +113,15 @@ Loaded 8 Japanese sample texts for analysis.
 専門医は、40代からの予防的な取り組みの重要性を強調しており、健康寿命の延伸につながる具体的なライフスタイルの提案を行っています。定期的な健康診断と組み合わせることで、より効果的な予防が可能です。
 --- サンプル終了 ---\n
 >>> 推定Tier2カテゴリ:
-    1. Nutrition (信頼度: 80.0%)
-    2. Weight Loss (信頼度: 60.0%)
+    1. Nutrition (ID: 229, 信頼度: 80.0%)
+    2. Weight Loss (ID: 231, 信頼度: 40.0%)
 
 >>> 推定ユーザープロファイル:
     年齢層: 40-60
-    ギーク度: 6/10
-    コンテンツの洗練度: advanced
-    推定される属性: health-conscious middle-aged adults, possibly with an interest in preventive medicine
+    性別: neutral
+    ギークレベル: 6/10
+    メディア品質: advanced
+    推定される属性: health-conscious middle-aged adult interested in preventive health
 
 ----------------------------------------------------------------------\n\n
 ======================================================================
@@ -129,14 +132,15 @@ Loaded 8 Japanese sample texts for analysis.
 新しいキャリアアップセミナーが開催されます。このセミナーでは、最新の業界動向、効果的な履歴書の書き方、面接対策について専門家が解説します。特に、デジタル分野でのキャリアチェンジを目指す方々にとって有益な情報が満載です。参加者には、個別キャリア相談の機会も提供されます。
 --- サンプル終了 ---\n
 >>> 推定Tier2カテゴリ:
-    1. Career Advice (信頼度: 90.0%)
-    2. Career Planning (信頼度: 85.0%)
+    1. Career Advice (ID: 125, 信頼度: 90.0%)
+    2. Career Planning (ID: 126, 信頼度: 80.0%)
 
 >>> 推定ユーザープロファイル:
     年齢層: 30-45
-    ギーク度: 6/10
-    コンテンツの洗練度: intermediate
-    推定される属性: professional individual seeking career advancement or change
+    性別: neutral
+    ギークレベル: 6/10
+    メディア品質: advanced
+    推定される属性: mid-career professionals seeking career advancement or change, interested in digital industry
 
 ----------------------------------------------------------------------\n\n
 ======================================================================
@@ -147,13 +151,14 @@ Loaded 8 Japanese sample texts for analysis.
 新しいオンライン学習プラットフォーム「学びの未来」が発表されました。このプラットフォームでは、国内外の有名大学の講義を自宅で受講でき、AIを活用した個別指導も提供されます。特に注目されているのは、実践的なスキルを習得できる専門コースで、キャリアアップを目指す社会人にも人気です。
 --- サンプル終了 ---\n
 >>> 推定Tier2カテゴリ:
-    1. Online Education (信頼度: 95.0%)
-    2. College Education (信頼度: 80.0%)
+    1. Online Education (ID: 148, 信頼度: 95.0%)
+    2. College Education (ID: 137, 信頼度: 75.0%)
 
 >>> 推定ユーザープロファイル:
     年齢層: 30-45
-    ギーク度: 7/10
-    コンテンツの洗練度: advanced
+    性別: neutral
+    ギークレベル: 7/10
+    メディア品質: advanced
     推定される属性: tech-savvy professional
 
 ----------------------------------------------------------------------\n\n
@@ -165,14 +170,15 @@ Loaded 8 Japanese sample texts for analysis.
 東京中心部に新しくオープンしたレストラン「旬彩亭」では、春の味覚をふんだんに使った特別コースが始まりました。シェフ厳選の新鮮な山菜や魚介類を使用し、素材本来の味を引き立てる調理法で提供されます。特に、桜鯛のカルパッチョや筍の炊き込みご飯は、この季節ならではの逸品です。
 --- サンプル終了 ---\n
 >>> 推定Tier2カテゴリ:
-    1. Dining Out (信頼度: 90.0%)
-    2. Cooking (信頼度: 70.0%)
+    1. Dining Out (ID: 218, 信頼度: 90.0%)
+    2. Cooking (ID: 216, 信頼度: 75.0%)
 
 >>> 推定ユーザープロファイル:
     年齢層: 30-45
-    ギーク度: 6/10
-    コンテンツの洗練度: intermediate
-    推定される属性: food enthusiast, possibly a professional with interest in seasonal cuisine
+    性別: neutral
+    ギークレベル: 6/10
+    メディア品質: advanced
+    推定される属性: urban food enthusiast, possibly a professional interested in seasonal cuisine and dining experiences
 
 \n================================================================================
 レポート終了

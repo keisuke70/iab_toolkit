@@ -47,8 +47,9 @@ except ImportError as e:
 class UserProfile:
     """Enhanced user profile based on content analysis."""
     age_range: str  # "18-25", "26-35", "36-45", "46-55", "55+"
-    geekiness_level: int  # 1-10 scale (1=casual, 10=expert)
-    content_sophistication: str  # "basic", "intermediate", "advanced"
+    gender: str  # "male", "female", "neutral"
+    geek_level: int  # 1-10 scale (1=casual, 10=expert)
+    media_quality: str  # "basic", "intermediate", "advanced"
     likely_demographics: str
     confidence: float  # 0.0-1.0
 
@@ -151,7 +152,6 @@ class HybridIABClassifier:
                 entry.get('tier_3') is None and 
                 entry.get('tier_4') is None):
                 tier2_categories.append(entry)
-        
         return tier2_categories
     
     def _llm_tier2_classification_with_profiling(self, text: str, tier1_domain: str, 
@@ -165,8 +165,9 @@ class HybridIABClassifier:
                 "tier2_categories": [],
                 "user_profile": {
                     "age_range": "unknown",
-                    "geekiness_level": 5,
-                    "content_sophistication": "basic",
+                    "gender": "neutral",
+                    "geek_level": 5,
+                    "media_quality": "basic",
                     "likely_demographics": "unknown",
                     "confidence": 0.5
                 }
@@ -202,8 +203,9 @@ Response format (JSON):
   ],
   "user_profile": {{
     "age_range": "30-45",
-    "geekiness_level": 7,
-    "content_sophistication": "advanced",
+    "gender": "neutral",
+    "geek_level": 7,
+    "media_quality": "advanced",
     "likely_demographics": "tech-savvy professional",
     "confidence": 0.8
   }}
@@ -229,7 +231,8 @@ Response format (JSON):
             content = response.choices[0].message.content
             if not content:
                 return {"error": "Empty response from GPT"}
-              # Clean and parse JSON response
+            
+            # Clean and parse JSON response
             clean_content = content.strip()
             if clean_content.startswith("```"):
                 lines = clean_content.split("\n")
@@ -244,8 +247,9 @@ Response format (JSON):
                 "tier2_categories": [],
                 "user_profile": {
                     "age_range": "unknown",
-                    "geekiness_level": 5,
-                    "content_sophistication": "basic",
+                    "gender": "neutral",
+                    "geek_level": 5,
+                    "media_quality": "basic",
                     "likely_demographics": "unknown",
                     "confidence": 0.5
                 }
@@ -280,7 +284,7 @@ Response format (JSON):
             return FinalClassificationResult(
                 primary_tier1_domain=tier1_domain,
                 tier2_categories=[],
-                user_profile=UserProfile("unknown", 5, "basic", "unknown", 0.0),
+                user_profile=UserProfile("unknown", "neutral", 5, "basic", "unknown", 0.0),
                 processing_time=processing_time,
                 method_used="embedding_tier1_only"
             )
@@ -291,13 +295,13 @@ Response format (JSON):
         
         # Step 4: Build final result
         processing_time = time.time() - start_time
-        
-        # Extract user profile
+          # Extract user profile
         profile_data = llm_result.get('user_profile', {})
         user_profile = UserProfile(
             age_range=profile_data.get('age_range', 'unknown'),
-            geekiness_level=profile_data.get('geekiness_level', 5),
-            content_sophistication=profile_data.get('content_sophistication', 'basic'),
+            gender=profile_data.get('gender', 'neutral'),
+            geek_level=profile_data.get('geek_level', 5),
+            media_quality=profile_data.get('media_quality', 'basic'),
             likely_demographics=profile_data.get('likely_demographics', 'unknown'),
             confidence=profile_data.get('confidence', 0.5)
         )
@@ -339,11 +343,11 @@ Response format (JSON):
                 "text_length": len(text),
                 "text_preview": text[:200] + "..." if len(text) > 200 else text,
                 "primary_tier1_domain": result.primary_tier1_domain,
-                "tier2_categories": result.tier2_categories,
-                "user_profile": {
+                "tier2_categories": result.tier2_categories,                "user_profile": {
                     "age_range": result.user_profile.age_range,
-                    "geekiness_level": result.user_profile.geekiness_level,
-                    "content_sophistication": result.user_profile.content_sophistication,
+                    "gender": result.user_profile.gender,
+                    "geek_level": result.user_profile.geek_level,
+                    "media_quality": result.user_profile.media_quality,
                     "likely_demographics": result.user_profile.likely_demographics,
                     "confidence": result.user_profile.confidence
                 },
@@ -359,7 +363,7 @@ Response format (JSON):
             print(f"  Tier 2 Categories: {len(result.tier2_categories)}")
             for j, cat in enumerate(result.tier2_categories, 1):
                 print(f"    {j}. {cat.get('name', 'Unknown')} (confidence: {cat.get('confidence', 0):.2f})")
-            print(f"  User Profile: {result.user_profile.age_range}, geekiness: {result.user_profile.geekiness_level}/10")
+            print(f"  User Profile: {result.user_profile.age_range}, geek level: {result.user_profile.geek_level}/10")
             print(f"  Processing Time: {result.processing_time:.3f}s")
         
         return results

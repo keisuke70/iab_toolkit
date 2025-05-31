@@ -155,7 +155,8 @@ def test_japanese_classification():
                 for j, cat in enumerate(result.tier2_categories, 1):
                     name_cat = cat.get('name', 'Unknown')
                     confidence = cat.get('confidence', 0.0)
-                    print(f"   {j}. {name_cat} ({confidence:.1%})")
+                    iab_id = cat.get('id', 'N/A') # Added IAB ID
+                    print(f"   {j}. {name_cat} (ID: {iab_id}, {confidence:.1%})") # Modified print statement
             else:
                 print("🏷️  Tier2カテゴリ: なし")
             print()
@@ -164,8 +165,9 @@ def test_japanese_classification():
             profile = result.user_profile
             print(f"👤 ユーザープロファイル:")
             print(f"   年齢層: {profile.age_range}")
-            print(f"   技術レベル: {profile.geekiness_level}/10")
-            print(f"   コンテンツ洗練度: {profile.content_sophistication}")
+            print(f"   性別: {profile.gender}")
+            print(f"   ギークレベル: {profile.geek_level}/10")
+            print(f"   メディア品質: {profile.media_quality}")
             print(f"   ユーザー層: {profile.likely_demographics}")
             print()
             
@@ -185,8 +187,9 @@ def test_japanese_classification():
                 'processing_time': classification_time,
                 'user_profile': {
                     'age_range': profile.age_range,
-                    'geekiness': profile.geekiness_level,
-                    'sophistication': profile.content_sophistication,
+                    'gender': profile.gender,
+                    'geek_level': profile.geek_level,
+                    'media_quality': profile.media_quality,
                     'demographics': profile.likely_demographics
                 }
             })

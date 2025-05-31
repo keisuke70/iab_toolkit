@@ -140,15 +140,17 @@ def print_readable_results(result, text_content):
         print(f"\n🏷️  Top Tier 2 Categories:")
         for i, cat in enumerate(result.tier2_categories, 1):
             confidence = cat.get('confidence', 0) * 100
-            print(f"   {i}. {cat['name']} ({confidence:.1f}%)")
+            iab_id = cat.get('id', 'N/A')
+            print(f"   {i}. {cat['name']} (IAB: {iab_id}) ({confidence:.1f}%)")
     
     # User Profile
     if result.user_profile:
         profile = result.user_profile
         print(f"\n👤 User Profile:")
         print(f"   Age Range: {profile.age_range}")
-        print(f"   Tech Level: {profile.geekiness_level}/10")
-        print(f"   Sophistication: {profile.content_sophistication}")
+        print(f"   Gender: {profile.gender}")
+        print(f"   Geek Level: {profile.geek_level}/10")
+        print(f"   Media Quality: {profile.media_quality}")
         print(f"   Demographics: {profile.likely_demographics}")
     
     # Processing info

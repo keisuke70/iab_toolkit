@@ -147,7 +147,8 @@ def generate_client_report():
                     for j, cat in enumerate(sorted_tier2_categories, 1):
                         name_cat = cat.get('name', 'Unknown')
                         confidence = cat.get('confidence', 0.0)
-                        print(f"    {j}. {name_cat} (信頼度: {confidence:.1%})")
+                        iab_id = cat.get('id', 'N/A') # Added IAB ID
+                        print(f"    {j}. {name_cat} (ID: {iab_id}, 信頼度: {confidence:.1%})") # Modified print statement
                 else:
                     print(">>> 推定Tier2カテゴリ: なし")
                 print()
@@ -156,8 +157,9 @@ def generate_client_report():
                 profile = result.user_profile
                 print(">>> 推定ユーザープロファイル:")
                 print(f"    年齢層: {profile.age_range}")
-                print(f"    ギーク度: {profile.geekiness_level}/10")
-                print(f"    コンテンツの洗練度: {profile.content_sophistication}")
+                print(f"    性別: {profile.gender}")
+                print(f"    ギークレベル: {profile.geek_level}/10")
+                print(f"    メディア品質: {profile.media_quality}")
                 print(f"    推定される属性: {profile.likely_demographics}")
                 print()
                 

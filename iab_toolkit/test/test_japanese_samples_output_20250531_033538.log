@@ -1,5 +1,5 @@
 ================================================================================
-COMPREHENSIVE JAPANESE TEXT CLASSIFICATION TEST - LOG AT 2025-05-26 19:38:27.820592
+COMPREHENSIVE JAPANESE TEXT CLASSIFICATION TEST - LOG AT 2025-05-31 03:35:38.246188
 ================================================================================
 🎯 Testing hybrid system with real Japanese content
 📊 Using .npy embeddings for tier1 + LLM for tier2
@@ -27,23 +27,24 @@ Primary domain: Automotive (confidence: 0.240)
 Step 2: Retrieving Tier 2 categories...
 Found 16 Tier 2 categories in Automotive
 Step 3: LLM-based Tier 2 classification with user profiling...
-Classification completed in 4.426 seconds
+Classification completed in 2.959 seconds
 🎯 分類結果:
    ✅ Tier1ドメイン: Automotive
    📈 期待値: Automotive
    ✓ 正確性: 正解
 
 🏷️  Tier2カテゴリ (TOP 2):
-   1. Auto Buying and Selling (60.0%)
-   2. Auto Repair (40.0%)
+   1. Auto Buying and Selling (ID: 30, 70.0%)
+   2. Auto Safety (ID: 35, 60.0%)
 
 👤 ユーザープロファイル:
    年齢層: 30-45
-   技術レベル: 8/10
-   コンテンツ洗練度: advanced
-   ユーザー層: automotive enthusiast, potential car buyer, tech-savvy professional
+   性別: neutral
+   ギークレベル: 8/10
+   メディア品質: advanced
+   ユーザー層: automotive enthusiast, tech-savvy professional
 
-⏱️  処理時間: 4.426秒
+⏱️  処理時間: 2.959秒
 
 ------------------------------------------------------------
 
@@ -61,23 +62,24 @@ Primary domain: Style & Fashion (confidence: 0.231)
 Step 2: Retrieving Tier 2 categories...
 Found 10 Tier 2 categories in Style & Fashion
 Step 3: LLM-based Tier 2 classification with user profiling...
-Classification completed in 3.438 seconds
+Classification completed in 2.617 seconds
 🎯 分類結果:
    ✅ Tier1ドメイン: Style & Fashion
    📈 期待値: Style & Fashion
    ✓ 正確性: 正解
 
 🏷️  Tier2カテゴリ (TOP 2):
-   1. Women's Fashion (70.0%)
-   2. Children's Clothing (20.0%)
+   1. Beauty (ID: 553, 90.0%)
+   2. Women's Fashion (ID: 560, 80.0%)
 
 👤 ユーザープロファイル:
    年齢層: 30-45
-   技術レベル: 6/10
-   コンテンツ洗練度: advanced
-   ユーザー層: health-conscious, environmentally aware women, possibly with higher education
+   性別: female
+   ギークレベル: 6/10
+   メディア品質: high
+   ユーザー層: health-conscious, environmentally aware women interested in natural beauty products
 
-⏱️  処理時間: 3.438秒
+⏱️  処理時間: 2.617秒
 
 ------------------------------------------------------------
 
@@ -95,23 +97,24 @@ Primary domain: Technology & Computing (confidence: 0.223)
 Step 2: Retrieving Tier 2 categories...
 Found 6 Tier 2 categories in Technology & Computing
 Step 3: LLM-based Tier 2 classification with user profiling...
-Classification completed in 3.023 seconds
+Classification completed in 3.000 seconds
 🎯 分類結果:
    ✅ Tier1ドメイン: Technology & Computing
    📈 期待値: Technology & Computing
    ✓ 正確性: 正解
 
 🏷️  Tier2カテゴリ (TOP 2):
-   1. Consumer Electronics (95.0%)
-   2. Artificial Intelligence (90.0%)
+   1. Artificial Intelligence (ID: 597, 90.0%)
+   2. Consumer Electronics (ID: 632, 85.0%)
 
 👤 ユーザープロファイル:
    年齢層: 30-45
-   技術レベル: 8/10
-   コンテンツ洗練度: advanced
+   性別: neutral
+   ギークレベル: 8/10
+   メディア品質: high-end
    ユーザー層: tech-savvy professional, early adopter of new technology
 
-⏱️  処理時間: 3.023秒
+⏱️  処理時間: 3.000秒
 
 ------------------------------------------------------------
 
@@ -129,23 +132,24 @@ Primary domain: Business and Finance (confidence: 0.208)
 Step 2: Retrieving Tier 2 categories...
 Found 3 Tier 2 categories in Business and Finance
 Step 3: LLM-based Tier 2 classification with user profiling...
-Classification completed in 3.488 seconds
+Classification completed in 3.119 seconds
 🎯 分類結果:
    ✅ Tier1ドメイン: Business and Finance
    📈 期待値: Business and Finance
    ✓ 正確性: 正解
 
 🏷️  Tier2カテゴリ (TOP 2):
-   1. Economy (90.0%)
-   2. Industries (85.0%)
+   1. Economy (ID: 80, 90.0%)
+   2. Industries (ID: 90, 85.0%)
 
 👤 ユーザープロファイル:
    年齢層: 30-45
-   技術レベル: 7/10
-   コンテンツ洗練度: advanced
-   ユーザー層: financially literate investor or professional with interest in renewable energy and stock markets
+   性別: neutral
+   ギークレベル: 7/10
+   メディア品質: advanced
+   ユーザー層: tech-savvy professional, investor or finance enthusiast
 
-⏱️  処理時間: 3.488秒
+⏱️  処理時間: 3.119秒
 
 ------------------------------------------------------------
 
@@ -163,23 +167,24 @@ Primary domain: Healthy Living (confidence: 0.310)
 Step 2: Retrieving Tier 2 categories...
 Found 8 Tier 2 categories in Healthy Living
 Step 3: LLM-based Tier 2 classification with user profiling...
-Classification completed in 3.886 seconds
+Classification completed in 2.934 seconds
 🎯 分類結果:
    ✅ Tier1ドメイン: Healthy Living
    📈 期待値: Healthy Living
    ✓ 正確性: 正解
 
 🏷️  Tier2カテゴリ (TOP 2):
-   1. Nutrition (80.0%)
-   2. Weight Loss (40.0%)
+   1. Wellness (ID: 232, 90.0%)
+   2. Weight Loss (ID: 231, 60.0%)
 
 👤 ユーザープロファイル:
-   年齢層: 40-60
-   技術レベル: 6/10
-   コンテンツ洗練度: advanced
-   ユーザー層: health-conscious middle-aged adults, possibly with an interest in preventive medicine
+   年齢層: 50-65
+   性別: neutral
+   ギークレベル: 5/10
+   メディア品質: advanced
+   ユーザー層: health-conscious older adults or caregivers interested in preventive health
 
-⏱️  処理時間: 3.886秒
+⏱️  処理時間: 2.934秒
 
 ------------------------------------------------------------
 
@@ -197,23 +202,24 @@ Primary domain: Careers (confidence: 0.340)
 Step 2: Retrieving Tier 2 categories...
 Found 6 Tier 2 categories in Careers
 Step 3: LLM-based Tier 2 classification with user profiling...
-Classification completed in 3.278 seconds
+Classification completed in 2.602 seconds
 🎯 分類結果:
    ✅ Tier1ドメイン: Careers
    📈 期待値: Careers
    ✓ 正確性: 正解
 
 🏷️  Tier2カテゴリ (TOP 2):
-   1. Career Advice (90.0%)
-   2. Career Planning (80.0%)
+   1. Career Advice (ID: 125, 90.0%)
+   2. Career Planning (ID: 126, 80.0%)
 
 👤 ユーザープロファイル:
    年齢層: 30-45
-   技術レベル: 6/10
-   コンテンツ洗練度: intermediate
-   ユーザー層: professional individual seeking career advancement or change
+   性別: neutral
+   ギークレベル: 6/10
+   メディア品質: advanced
+   ユーザー層: mid-career professionals seeking career advancement or change
 
-⏱️  処理時間: 3.278秒
+⏱️  処理時間: 2.602秒
 
 ------------------------------------------------------------
 
@@ -231,23 +237,24 @@ Primary domain: Education (confidence: 0.284)
 Step 2: Retrieving Tier 2 categories...
 Found 12 Tier 2 categories in Education
 Step 3: LLM-based Tier 2 classification with user profiling...
-Classification completed in 4.299 seconds
+Classification completed in 2.530 seconds
 🎯 分類結果:
    ✅ Tier1ドメイン: Education
    📈 期待値: Education
    ✓ 正確性: 正解
 
 🏷️  Tier2カテゴリ (TOP 2):
-   1. Online Education (95.0%)
-   2. College Education (80.0%)
+   1. Online Education (ID: 148, 95.0%)
+   2. College Education (ID: 137, 75.0%)
 
 👤 ユーザープロファイル:
    年齢層: 30-45
-   技術レベル: 7/10
-   コンテンツ洗練度: advanced
+   性別: neutral
+   ギークレベル: 7/10
+   メディア品質: advanced
    ユーザー層: tech-savvy professional
 
-⏱️  処理時間: 4.299秒
+⏱️  処理時間: 2.530秒
 
 ------------------------------------------------------------
 
@@ -265,23 +272,24 @@ Primary domain: Food & Drink (confidence: 0.236)
 Step 2: Retrieving Tier 2 categories...
 Found 12 Tier 2 categories in Food & Drink
 Step 3: LLM-based Tier 2 classification with user profiling...
-Classification completed in 3.179 seconds
+Classification completed in 2.967 seconds
 🎯 分類結果:
    ✅ Tier1ドメイン: Food & Drink
    📈 期待値: Food & Drink
    ✓ 正確性: 正解
 
 🏷️  Tier2カテゴリ (TOP 2):
-   1. Dining Out (90.0%)
-   2. Cooking (75.0%)
+   1. Dining Out (ID: 218, 90.0%)
+   2. Cooking (ID: 216, 75.0%)
 
 👤 ユーザープロファイル:
    年齢層: 30-45
-   技術レベル: 6/10
-   コンテンツ洗練度: intermediate
-   ユーザー層: food enthusiast, possibly with an interest in Japanese cuisine and seasonal ingredients
+   性別: neutral
+   ギークレベル: 6/10
+   メディア品質: advanced
+   ユーザー層: urban professional with interest in food and dining experiences
 
-⏱️  処理時間: 3.179秒
+⏱️  処理時間: 2.967秒
 
 ------------------------------------------------------------
 
