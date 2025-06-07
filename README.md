@@ -18,6 +18,12 @@
 
 ## 前提条件とセットアップ
 
+### システム要件
+
+- **Python**: 3.10 以上
+- **OS**: Windows, macOS, Linux 対応
+- **インターネット接続**: OpenAI API 呼び出し用
+
 ### OpenAI API キーの設定
 
 このシステムは OpenAI API を使用するため、事前に API キーの設定が必要です。
@@ -30,28 +36,44 @@
 
 2. **環境変数の設定**:
 
-   ```bash
+   ```powershell
    # Windows (PowerShell)
    $Env:OPENAI_API_KEY="your-api-key-here"
-
-   # または .env ファイルを作成 (python-dotenv が必要)
-   echo "OPENAI_API_KEY=your-api-key-here" > .env
    ```
 
-   **重要:** `.env` ファイルを使用する場合、プロジェクトの依存関係に `python-dotenv` が含まれていることを確認してください。含まれていない場合は、`pip install python-dotenv` でインストールし、コード内で `load_dotenv()` を呼び出す必要があります。本パッケージでは `python-dotenv` が依存関係に含まれており、`iab_toolkit._config` モジュールで自動的に `.env` ファイルが読み込まれるようになっています。
+   ```bash
+   # macOS/Linux
+   export OPENAI_API_KEY="your-api-key-here"
+   ```
 
-3. **必要な依存関係**:
-   - Python 3.10 以上
-   - OpenAI API キー
-   - インターネット接続（API 呼び出し用）
+   **または .env ファイルを作成**:
+   ```powershell
+   # プロジェクトルートに .env ファイルを作成
+   echo "OPENAI_API_KEY=your-api-key-here" | Out-File -FilePath .env -Encoding utf8
+   ```
+
+   **重要:** 本パッケージでは `python-dotenv` が依存関係に含まれており、`iab_toolkit._config` モジュールで自動的に `.env` ファイルが読み込まれます。追加のインストールや設定は不要です。
 
 ### インストール
 
-```bash
-# パッケージのインストール
+**推奨: 仮想環境の使用**
+
+```powershell
+# 1. 仮想環境を作成
+python -m venv .venv
+
+# 2. 仮想環境を有効化
+.\.venv\Scripts\Activate.ps1
+
+# 3. パッケージをインストール（開発モード）
 pip install -e .
 
-# または wheel ファイルから
+# または開発依存関係も含めてインストール
+pip install -e ".[dev]"
+```
+
+**Wheel ファイルからのインストール**:
+```powershell
 pip install path/to/iab_toolkit-0.3.0-py3-none-any.whl
 ```
 
@@ -100,32 +122,56 @@ print(f"使用された手法: {result.method_used}") # 使用された分類手
 - **精度**: Tier 1 検出 100%、総合精度 80%
 - **日本語サポート**: 8 種類のサンプルタイプで完全に検証済み（自動車、美容、技術、ビジネス、健康、キャリア、教育、食品・飲料）
 
-## ファイル構成と説明
+## プロジェクト構成
 
-このプロジェクトは以下の主要なファイルで構成されています。
+```
+iab_toolkit/
+├── pyproject.toml              # プロジェクト設定、依存関係、ビルド設定
+├── README.md                   # このファイル（プロジェクト説明書）
+├── .venv/                      # 仮想環境（pip install -e . 実行後に作成）
+└── iab_toolkit/                # メインパッケージディレクトリ
+    ├── __init__.py             # パッケージ初期化、主要クラスのエクスポート
+    ├── _config.py              # 設定管理（OpenAI API キー、.env ファイル読み込み）
+    ├── _embedding.py           # テキスト埋め込み生成（OpenAI API利用）
+    ├── _gpt.py                 # OpenAI GPT モデル連携
+    ├── cli.py                  # CLI インターフェース（iab-hybrid コマンド）
+    ├── hybrid_iab_classifier.py # メイン分類器クラス
+    ├── models.py               # データクラス定義（結果、プロファイルなど）
+    ├── optimized_tier1_detector.py # 高速 Tier 1 検出器
+    ├── test_japanese_samples.py # 技術者向けテストスイート
+    ├── test_japanese_samples_client_report.py # クライアント向けレポート生成
+    ├── test/                   # テスト結果出力フォルダ
+    │   ├── *.log              # 技術テストログファイル
+    │   └── *.txt              # クライアントレポートファイル
+    └── data/                   # データファイル
+        ├── tier1_embeddings.npy    # 事前計算済み埋め込み（39ドメイン）
+        ├── tier1_domains.json      # Tier 1 ドメイン名リスト
+        ├── tier1_taxonomy.json     # 最適化済みタクソノミー
+        ├── taxonomy.json           # 完全な IAB タクソノミー v3.1
+        └── japanese_*.txt          # 日本語テストサンプル（8種類）
+```
 
-- `iab_toolkit/`
-  - `__init__.py`: `iab_toolkit` パッケージの初期化スクリプト。主要クラスをインポート可能にします。
-  - `_config.py`: OpenAI API キーなどの設定情報を管理します。
-  - `_embedding.py`: テキストの埋め込みベクトル生成（OpenAI API 利用）と関連ユーティリティを提供します。
-  - `_gpt.py`: OpenAI GPT モデルとの連携を担当し、コンテンツ分類やプロファイル生成を行います。
-  - `cli.py`: コマンドラインインターフェース（`iab-hybrid`）を提供します。テキスト入力、ファイル入力、テスト実行が可能です。
-  - `hybrid_iab_classifier.py`: 中核となる `HybridIABClassifier` クラスを実装し、Tier 1 および Tier 2 の分類処理全体を制御します。
-  - `models.py`: 分類結果やユーザープロファイル情報を格納するためのデータクラスを定義します。
-  - `optimized_tier1_detector.py`: 事前計算済み埋め込みを利用して高速な Tier 1 ドメイン検出を行う `OptimizedTier1Detector` クラスを実装します。
-  - `test_japanese_samples.py`: 日本語サンプルテキストを用いた分類システムのテストスイートです。
-  - `test_japanese_samples_client_report.py`: 日本語サンプル分析のクライアント向けレポート生成スクリプトです。
-  - `test/`: テスト実行結果の出力フォルダ（ログファイルとレポートファイルを格納）
-  - `data/`:
-    - `tier1_embeddings.npy`: Tier 1 ドメインの事前計算済み埋め込みベクトル。
-    - `tier1_domains.json`: `tier1_embeddings.npy` に対応する Tier 1 ドメイン名の順序付きリスト。
-    - `tier1_taxonomy.json`: Tier 1 検出用に最適化・クリーンアップされたタクソノミーデータ。
-    - `taxonomy.json`: IAB Content Taxonomy v3.1 の全データ。
-    - 各種 `japanese_*.txt`: 日本語のサンプルテキストファイル。
-- `pyproject.toml`: プロジェクトのビルド設定、依存関係、CLI のエントリーポイントなどを定義します。
-- `README.md`: このファイルです。プロジェクトの概要、使い方、ファイル構成などを説明します。
+### 主要ファイルの説明
 
-**事前計算済みデータについて**: `iab_toolkit/data/` ディレクトリ内の事前計算済みファイル（`.npy` や `.json` ファイルなど）は、`pyproject.toml` の設定により、パッケージのビルド時に自動的に組み込まれます。これにより、インストール後すぐに最適化された分類機能を利用できます。
+**コア分類システム:**
+- `hybrid_iab_classifier.py`: メインの分類器。Tier 1（埋め込み）+ Tier 2（LLM）のハイブリッド処理
+- `optimized_tier1_detector.py`: 事前計算済み埋め込みによる高速 Tier 1 検出（2.2倍高速化）
+- `models.py`: `UserProfile`、`FinalClassificationResult` などのデータ構造定義
+
+**API 連携:**
+- `_gpt.py`: OpenAI GPT-4 による Tier 2 分類とユーザープロファイル生成
+- `_embedding.py`: OpenAI text-embedding-3-small による埋め込み生成
+- `_config.py`: API キー管理、環境変数・.env ファイル自動読み込み
+
+**CLI とテスト:**
+- `cli.py`: `iab-hybrid` コマンドの実装（テキスト分類、ファイル処理、テスト実行）
+- `test_japanese_samples.py`: 8種類の日本語サンプルでの技術的検証
+- `test_japanese_samples_client_report.py`: ビジネス向け分析レポート生成
+
+**最適化データ:**
+- `tier1_embeddings.npy`: 39個の Tier 1 ドメインの事前計算済み埋め込み（1536次元）
+- `tier1_domains.json`: 埋め込みファイルに対応するドメイン名の順序リスト
+- `taxonomy.json`: IAB Content Taxonomy v3.1 完全版（700+ カテゴリ）
 
 ## CLI 利用方法
 
@@ -133,7 +179,7 @@ print(f"使用された手法: {result.method_used}") # 使用された分類手
 
 ### 基本的な使い方
 
-```bash
+```powershell
 # 直接テキストを指定して分類
 iab-hybrid "ここに分類したいテキストを入力します。"
 
@@ -141,7 +187,7 @@ iab-hybrid "ここに分類したいテキストを入力します。"
 iab-hybrid --file path/to/your/content.txt
 
 # 日本語サンプルファイルを分類する例
-iab-hybrid --file iab_toolkit/data/japanese_automotive_sample.txt
+iab-hybrid --file iab_toolkit/data/japanese_text_sample.txt
 
 # JSON形式で結果を出力
 iab-hybrid --json "テキスト内容"
@@ -152,7 +198,7 @@ iab-hybrid --verbose "テキスト内容"
 
 ### テストスイート実行
 
-```bash
+```powershell
 # 技術者向け詳細テスト（ログファイルに出力）
 # 全8種類の日本語サンプルをテストし、詳細な技術情報をtest/フォルダにログファイルとして記録
 iab-hybrid --test
@@ -234,15 +280,15 @@ IAB HYBRID CLASSIFICATION RESULTS
 ### ビルド手順
 
 1.  `build` パッケージがインストールされていることを確認してください:
-    ```bash
+    ```powershell
     pip install build
     ```
 2.  ターミナルで `iab_toolkit` ディレクトリに移動します:
-    ```bash
-    cd c:\\Users\\Ykeisuke\\Documents\\iab_toolkit
+    ```powershell
+    cd c:\Users\Ykeisuke\Documents\iab_toolkit
     ```
 3.  ビルドコマンドを実行します:
-    ```bash
+    ```powershell
     python -m build
     ```
     これにより、`dist` ディレクトリ内に `.whl` ファイル（例: `iab_toolkit-0.3.0-py3-none-any.whl`）が作成されます。
@@ -251,9 +297,54 @@ IAB HYBRID CLASSIFICATION RESULTS
 
 作成された `.whl` ファイルを他のプロジェクト（または既知の場所）にコピーし、次のコマンドを実行します:
 
-```bash
+```powershell
 pip install path/to/your/iab_toolkit-0.3.0-py3-none-any.whl
 ```
+
+## トラブルシューティング
+
+### 一般的な問題と解決方法
+
+**1. OpenAI API キー関連のエラー**
+```
+Error: OpenAI API key not found
+```
+**解決方法:**
+- PowerShell で環境変数を設定: `$Env:OPENAI_API_KEY="your-key"`
+- または `.env` ファイルを作成: `OPENAI_API_KEY=your-key`
+- API キーが有効で残高があることを確認
+
+**2. 仮想環境の問題**
+```
+iab-hybrid: command not found
+```
+**解決方法:**
+- 仮想環境を有効化: `.\.venv\Scripts\Activate.ps1`
+- パッケージを再インストール: `pip install -e .`
+
+**3. 依存関係の問題**
+```
+ModuleNotFoundError: No module named 'openai'
+```
+**解決方法:**
+- 仮想環境内で依存関係を再インストール: `pip install -e .`
+- 必要に応じて `pip install --upgrade pip`
+
+**4. 日本語ファイルの文字化け**
+```
+UnicodeDecodeError
+```
+**解決方法:**
+- ファイルが UTF-8 エンコーディングで保存されていることを確認
+- `--file` オプション使用時にファイルパスが正しいことを確認
+
+### サポートとフィードバック
+
+問題が解決しない場合は、以下の情報を含めてお問い合わせください：
+- Python バージョン (`python --version`)
+- パッケージバージョン (`pip show iab-toolkit`)
+- エラーメッセージの全文
+- 実行したコマンド
 
 ## データファイル (主要なもの)
 
